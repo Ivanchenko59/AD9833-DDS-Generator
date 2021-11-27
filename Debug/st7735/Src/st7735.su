@@ -1,0 +1,15 @@
+st7735.c:86:13:ST7735_Select	8	static
+st7735.c:90:6:ST7735_Unselect	8	static
+st7735.c:94:13:ST7735_Reset	8	static
+st7735.c:100:13:ST7735_WriteCommand	16	static
+st7735.c:105:13:ST7735_WriteData	16	static
+st7735.c:110:13:ST7735_ExecuteCommandList	24	static
+st7735.c:136:13:ST7735_SetAddressWindow	32	static
+st7735.c:152:6:ST7735_Init	8	static
+st7735.c:161:6:ST7735_DrawPixel	24	static
+st7735.c:174:13:ST7735_WriteChar	48	static
+st7735.c:210:6:ST7735_WriteString	32	static
+st7735.c:236:6:ST7735_FillRectangle	32	static
+st7735.c:256:6:ST7735_FillScreen	24	static
+st7735.c:260:6:ST7735_DrawImage	24	static
+st7735.c:271:6:ST7735_InvertColors	16	static
