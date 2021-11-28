@@ -25,7 +25,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "st7735.h"
 #include "fonts.h"
 /* USER CODE END Includes */
 
@@ -46,7 +45,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint32_t Enc_Counter = 0;
+int8_t encoder_status;
+uint32_t freq = 1000;
+uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
 /* USER CODE END PV */
 
@@ -94,21 +95,55 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   ST7735_Init();
-  HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL);
-
+  Encoder_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   ST7735_FillScreen(ST7735_BLACK);
+
+  ST7735_FillRectangle(23, 70, 12, 2, ST7735_DARKGREY);
+  ST7735_FillRectangle(45, 70, 35, 2, ST7735_DARKGREY);
+  ST7735_FillRectangle(90, 70, 35, 2, ST7735_DARKGREY);
+  ST7735_WriteString(19, 75, "MHz  kHz   Hz", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 
   while (1)
   {
 
-	  int16_t Enc_Counter = TIM1->CNT;
+	  encoder_status = Encoder_Get_Status();
 
-	  sprintf(Str_Buffer, "%d", Enc_Counter);
-	  ST7735_WriteString(50, 50, Str_Buffer, Font_7x10, ST7735_WHITE, ST7735_GREY);
+	  switch(encoder_status) {
+	  	  case Incremented:
+	  		  freq++;
+	  		  break;
+	      case Decremented:
+	    	  if(freq > 0)
+	    		  freq--;
+	    	  break;
+	      case Neutral:
+	    	  break;
+	  }
+
+
+	  MHz = freq / 1000000;
+	  kHz = freq / 1000 % 1000;
+	  Hz = freq % 1000;
+
+	  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
+	  ST7735_WriteString(25, 50, Str_Buffer, Font_11x18, ST7735_WHITE, ST7735_BLACK);
+
+	  uint8_t button_status = Button_Get_Status();
+	  switch(button_status) {
+	  	  	  case Short_Press:
+	  	  		  freq += 100;
+	  	  		  break;
+	  	      case Long_Press:
+	  	    	  freq += 1000;
+	  	    	  break;
+	  	      case False_Press:
+	  	    	  break;
+	  }
 
 
     /* USER CODE END WHILE */

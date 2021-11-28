@@ -1,0 +1,4 @@
+encoder.c:23:6:Encoder_Init	8	static
+encoder.c:32:10:Encoder_Read	16	static
+encoder.c:42:16:Encoder_Get_Status	8	static
+encoder.c:62:15:Button_Get_Status	8	static

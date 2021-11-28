@@ -34,6 +34,9 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include <string.h>
+
+#include "st7735.h"
+#include "encoder.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -59,22 +62,11 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ST7735_SCK_Pin GPIO_PIN_5
-#define ST7735_SCK_GPIO_Port GPIOA
-#define ST7735_SDA_Pin GPIO_PIN_7
-#define ST7735_SDA_GPIO_Port GPIOA
-#define ENC_S1_Pin GPIO_PIN_8
-#define ENC_S1_GPIO_Port GPIOA
-#define ENC_S2_Pin GPIO_PIN_9
-#define ENC_S2_GPIO_Port GPIOA
-#define ENC_BTN_Pin GPIO_PIN_10
-#define ENC_BTN_GPIO_Port GPIOA
-#define ST7735_CS_Pin GPIO_PIN_6
-#define ST7735_CS_GPIO_Port GPIOB
-#define ST7735_RST_Pin GPIO_PIN_7
-#define ST7735_RST_GPIO_Port GPIOB
-#define ST7735_DC_Pin GPIO_PIN_8
-#define ST7735_DC_GPIO_Port GPIOB
+#define ST7735_SCK_Pin 			GPIO_PIN_5
+#define ST7735_SCK_GPIO_Port 	GPIOA
+#define ST7735_SDA_Pin 			GPIO_PIN_7
+#define ST7735_SDA_GPIO_Port 	GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
