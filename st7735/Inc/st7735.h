@@ -252,6 +252,7 @@ void ST7735_Unselect();
 void ST7735_Init(void);
 void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t main_color, uint16_t main_bgcolor, uint8_t select_pos, uint16_t select_color, uint16_t select_bgcolor);
 void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void ST7735_FillScreen(uint16_t color);
 void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data);

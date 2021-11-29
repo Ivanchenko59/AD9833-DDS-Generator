@@ -9,7 +9,8 @@ st7735.c:152:6:ST7735_Init	8	static
 st7735.c:161:6:ST7735_DrawPixel	24	static
 st7735.c:174:13:ST7735_WriteChar	48	static
 st7735.c:193:6:ST7735_WriteString	32	static
-st7735.c:219:6:ST7735_FillRectangle	32	static
-st7735.c:239:6:ST7735_FillScreen	24	static
-st7735.c:243:6:ST7735_DrawImage	24	static
-st7735.c:254:6:ST7735_InvertColors	16	static
+st7735.c:220:6:ST7735_WriteStringWithSelect	40	static
+st7735.c:254:6:ST7735_FillRectangle	32	static
+st7735.c:274:6:ST7735_FillScreen	24	static
+st7735.c:278:6:ST7735_DrawImage	24	static
+st7735.c:289:6:ST7735_InvertColors	16	static

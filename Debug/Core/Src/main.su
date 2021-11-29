@@ -1,5 +1,5 @@
-main.c:70:5:main	32	static
-main.c:160:6:Edit_Frequency	32	static
-main.c:181:10:int_pow	24	static
-main.c:198:6:SystemClock_Config	88	static
-main.c:245:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:70:5:main	40	static
+main.c:147:6:Edit_Frequency	32	static
+main.c:167:10:int_pow	24	static
+main.c:184:6:SystemClock_Config	88	static
+main.c:231:6:Error_Handler	4	static,ignoring_inline_asm

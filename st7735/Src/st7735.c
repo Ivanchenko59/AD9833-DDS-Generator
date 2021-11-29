@@ -216,6 +216,41 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
     ST7735_Unselect();
 }
 
+
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t main_color, uint16_t main_bgcolor, uint8_t select_pos, uint16_t select_color, uint16_t select_bgcolor) {
+    ST7735_Select();
+
+    uint8_t pos_counter = 6;
+
+    while(*str) {
+        if(x + font.width >= ST7735_WIDTH) {
+            x = 0;
+            y += font.height;
+            if(y + font.height >= ST7735_HEIGHT) {
+                break;
+            }
+
+            if(*str == ' ') {
+                // skip spaces in the beginning of the new line
+                str++;
+                continue;
+            }
+        }
+        if (pos_counter == select_pos && (*str >= '0' && *str <= '9'))
+        	ST7735_WriteChar(x, y, *str, font, select_color, select_bgcolor);
+        else
+        	ST7735_WriteChar(x, y, *str, font, main_color, main_bgcolor);
+
+        if (*str >= '0' && *str <= '9') pos_counter--;
+
+        x += font.width;
+        str++;
+    }
+
+    ST7735_Unselect();
+}
+
+
 void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
     // clipping
     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;

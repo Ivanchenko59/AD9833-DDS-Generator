@@ -104,10 +104,10 @@ int main(void)
 
   ST7735_FillScreen(ST7735_BLACK);
 
-  ST7735_FillRectangle(23, 70, 12, 2, ST7735_DARKGREY);
-  ST7735_FillRectangle(45, 70, 35, 2, ST7735_DARKGREY);
-  ST7735_FillRectangle(90, 70, 35, 2, ST7735_DARKGREY);
-  ST7735_WriteString(19, 75, "MHz  kHz   Hz", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
+  ST7735_FillRectangle(25, 70, 12, 2, ST7735_DARKGREY);
+  ST7735_FillRectangle(49, 70, 35, 2, ST7735_DARKGREY);
+  ST7735_FillRectangle(97, 70, 35, 2, ST7735_DARKGREY);
+  ST7735_WriteString(21, 75, "MHz  kHz    Hz", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 
   while (1)
   {
@@ -119,7 +119,8 @@ int main(void)
 	  Hz = freq % 1000;
 
 	  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
-	  ST7735_WriteString(25, 50, Str_Buffer, Font_11x18, ST7735_WHITE, ST7735_BLACK);
+	  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK, edit_pos, ST7735_BLACK, ST7735_YELLOW);
+
 
 	  uint8_t button_status = Button_Get_Status();
 	  switch(button_status) {
