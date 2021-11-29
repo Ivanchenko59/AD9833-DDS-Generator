@@ -47,6 +47,7 @@
 /* USER CODE BEGIN PV */
 int8_t encoder_status;
 uint32_t freq = 1000;
+uint8_t edit_pos = 0;
 uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
 /* USER CODE END PV */
@@ -111,20 +112,7 @@ int main(void)
   while (1)
   {
 
-	  encoder_status = Encoder_Get_Status();
-
-	  switch(encoder_status) {
-	  	  case Incremented:
-	  		  freq++;
-	  		  break;
-	      case Decremented:
-	    	  if(freq > 0)
-	    		  freq--;
-	    	  break;
-	      case Neutral:
-	    	  break;
-	  }
-
+	  Edit_Frequency(edit_pos, &freq);
 
 	  MHz = freq / 1000000;
 	  kHz = freq / 1000 % 1000;
@@ -135,14 +123,14 @@ int main(void)
 
 	  uint8_t button_status = Button_Get_Status();
 	  switch(button_status) {
-	  	  	  case Short_Press:
-	  	  		  freq += 100;
-	  	  		  break;
-	  	      case Long_Press:
-	  	    	  freq += 1000;
-	  	    	  break;
-	  	      case False_Press:
-	  	    	  break;
+	  	  case Short_Press:
+			  edit_pos++;
+			  break;
+		  case Long_Press:
+			edit_pos--;
+			  break;
+		  case False_Press:
+			  break;
 	  }
 
 
@@ -152,6 +140,41 @@ int main(void)
   }
   /* USER CODE END 3 */
 }
+
+
+
+void Edit_Frequency(uint8_t position, uint32_t *p_freq)
+{
+	uint32_t edit_value = *p_freq / int_pow(10, position);
+
+	switch(Encoder_Get_Status()) {
+		  case Incremented:
+			  edit_value++;
+			  break;
+		  case Decremented:
+			  if(edit_value > 0)
+				  edit_value--;
+			  break;
+		  case Neutral:
+			  break;
+	  }
+
+	*p_freq = edit_value * int_pow(10, position) + *p_freq % int_pow(10, position);
+
+}
+
+uint32_t int_pow(uint32_t base, uint8_t exp)
+{
+    uint32_t result = 1;
+    while (exp) {
+        if (exp % 2)
+           result *= base;
+        exp /= 2;
+        base *= base;
+    }
+    return result;
+}
+
 
 /**
   * @brief System Clock Configuration

@@ -10,8 +10,8 @@
 
 #include "encoder.h"
 
-static uint16_t new_count;
-static uint16_t prev_count;
+static int16_t new_count = 0;
+static int16_t prev_count = 0;
 
 bit_fied_TypeDef btn = {0, 0, 0};
 
@@ -31,7 +31,7 @@ void Encoder_Init(void)
  */
 uint16_t Encoder_Read(void)
 {
-	uint16_t val = __HAL_TIM_GET_COUNTER(&htim1);
+	int16_t val = __HAL_TIM_GET_COUNTER(&htim1);
 	return val >> 1;
 }
 
@@ -47,7 +47,7 @@ Encoder_Status Encoder_Get_Status(void)
 			prev_count = new_count;
 			return Incremented;
 		}
-		else {
+		else if (new_count < prev_count){
 			prev_count = new_count;
 			return Decremented;
 		}
