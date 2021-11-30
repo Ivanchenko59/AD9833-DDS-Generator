@@ -47,7 +47,7 @@ ColorDef text_color = {ST7735_WHITE, ST7735_BLACK, ST7735_BLACK, ST7735_YELLOW};
 /* USER CODE BEGIN PV */
 int8_t encoder_status;
 uint32_t freq = 1000;
-uint8_t edit_pos = 3;
+int8_t edit_pos = 3;
 uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
 /* USER CODE END PV */
@@ -112,7 +112,9 @@ int main(void)
   while (1)
   {
 
-	  Edit_Frequency(edit_pos, &freq);
+	  //Edit_Frequency(edit_pos, &freq);
+
+	  Change_Position(&edit_pos);
 
 	  MHz = freq / 1000000;
 	  kHz = freq / 1000 % 1000;
@@ -147,9 +149,8 @@ int main(void)
 
 
 
-void Edit_Frequency(uint8_t position, uint32_t *p_freq)
+void Edit_Frequency(int8_t position, uint32_t *p_freq)
 {
-
 	uint32_t pos_to_Hz = int_pow(10, position);
 	uint32_t edit_value = *p_freq / pos_to_Hz;
 
@@ -169,7 +170,22 @@ void Edit_Frequency(uint8_t position, uint32_t *p_freq)
 
 	if (edited_freq <= MAX_FREQ_VALUE)
 		*p_freq = edited_freq;
+}
 
+void Change_Position(int8_t *edit_pos)
+{
+	switch(Encoder_Get_Status()) {
+		case Incremented:
+			(*edit_pos)--;
+			if (*edit_pos < 0) *edit_pos = MAX_DIGITS;
+			break;
+		case Decremented:
+			(*edit_pos)++;
+			if (*edit_pos >= MAX_DIGITS + 1) *edit_pos = 0;
+			break;
+		case Neutral:
+			break;
+	}
 }
 
 uint32_t int_pow(uint32_t base, uint8_t exp)

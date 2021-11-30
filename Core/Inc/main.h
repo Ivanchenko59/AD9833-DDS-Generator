@@ -59,7 +59,8 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 uint32_t int_pow(uint32_t base, uint8_t exp);
-void Edit_Frequency(uint8_t position, uint32_t *p_freq);
+void Edit_Frequency(int8_t position, uint32_t *p_freq);
+void Change_Position(int8_t *edit_pos);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
