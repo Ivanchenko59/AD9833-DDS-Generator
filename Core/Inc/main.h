@@ -70,6 +70,7 @@ void Edit_Frequency(uint8_t position, uint32_t *p_freq);
 
 /* USER CODE BEGIN Private defines */
 #define MAX_DIGITS 6
+#define MAX_FREQ_VALUE 5000000
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

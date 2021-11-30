@@ -149,7 +149,9 @@ int main(void)
 
 void Edit_Frequency(uint8_t position, uint32_t *p_freq)
 {
-	uint32_t edit_value = *p_freq / int_pow(10, position);
+
+	uint32_t pos_to_Hz = int_pow(10, position);
+	uint32_t edit_value = *p_freq / pos_to_Hz;
 
 	switch(Encoder_Get_Status()) {
 		  case Incremented:
@@ -163,7 +165,10 @@ void Edit_Frequency(uint8_t position, uint32_t *p_freq)
 			  break;
 	  }
 
-	*p_freq = edit_value * int_pow(10, position) + *p_freq % int_pow(10, position);
+	uint32_t edited_freq = edit_value * pos_to_Hz + *p_freq % pos_to_Hz;
+
+	if (edited_freq <= MAX_FREQ_VALUE)
+		*p_freq = edited_freq;
 
 }
 

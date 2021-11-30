@@ -223,10 +223,10 @@ void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontD
     uint8_t pos_counter = 6;
 
     while(*str) {
-        if(x + font.width >= ST7735_WIDTH) {
+        if (x + font.width >= ST7735_WIDTH) {
             x = 0;
             y += font.height;
-            if(y + font.height >= ST7735_HEIGHT) {
+            if (y + font.height >= ST7735_HEIGHT) {
                 break;
             }
 
