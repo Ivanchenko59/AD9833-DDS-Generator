@@ -69,7 +69,7 @@ void Edit_Frequency(uint8_t position, uint32_t *p_freq);
 #define ST7735_SDA_GPIO_Port 	GPIOA
 
 /* USER CODE BEGIN Private defines */
-
+#define MAX_DIGITS 6
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

@@ -30,7 +30,7 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-
+ColorDef text_color = {ST7735_WHITE, ST7735_BLACK, ST7735_BLACK, ST7735_YELLOW};
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -47,7 +47,7 @@
 /* USER CODE BEGIN PV */
 int8_t encoder_status;
 uint32_t freq = 1000;
-uint8_t edit_pos = 0;
+uint8_t edit_pos = 3;
 uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
 /* USER CODE END PV */
@@ -119,16 +119,19 @@ int main(void)
 	  Hz = freq % 1000;
 
 	  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
-	  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK, edit_pos, ST7735_BLACK, ST7735_YELLOW);
+	  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, edit_pos, text_color);
 
 
 	  uint8_t button_status = Button_Get_Status();
 	  switch(button_status) {
 	  	  case Short_Press:
-			  edit_pos++;
+	  		  if (edit_pos < MAX_DIGITS)
+	  			  edit_pos++;
 			  break;
-		  case Long_Press:
-			edit_pos--;
+
+	  	  case Long_Press:
+	  		  if (edit_pos > 0)
+	  			  edit_pos--;
 			  break;
 		  case False_Press:
 			  break;

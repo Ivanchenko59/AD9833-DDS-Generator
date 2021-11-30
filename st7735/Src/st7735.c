@@ -217,7 +217,7 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
 }
 
 
-void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t main_color, uint16_t main_bgcolor, uint8_t select_pos, uint16_t select_color, uint16_t select_bgcolor) {
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, ColorDef color) {
     ST7735_Select();
 
     uint8_t pos_counter = 6;
@@ -237,9 +237,9 @@ void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontD
             }
         }
         if (pos_counter == select_pos && (*str >= '0' && *str <= '9'))
-        	ST7735_WriteChar(x, y, *str, font, select_color, select_bgcolor);
+        	ST7735_WriteChar(x, y, *str, font, color.selectText, color.selectBackground);
         else
-        	ST7735_WriteChar(x, y, *str, font, main_color, main_bgcolor);
+        	ST7735_WriteChar(x, y, *str, font, color.mainText, color.mainBackground);
 
         if (*str >= '0' && *str <= '9') pos_counter--;
 
