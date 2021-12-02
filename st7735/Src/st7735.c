@@ -83,6 +83,14 @@ static const uint8_t
     ST7735_DISPON ,    DELAY, //  4: Main screen turn on, no args w/delay
       100 };                  //     100 ms delay
 
+
+void _swap_int16_t(int16_t a, int16_t b) {
+	int16_t t = a;
+	a = b;
+	b = t;
+  }
+
+
 static void ST7735_Select() {
     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_RESET);
 }
@@ -217,7 +225,7 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
 }
 
 
-void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, ColorDef color) {
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, Color_TypeDef color) {
     ST7735_Select();
 
     uint8_t pos_counter = 6;
@@ -293,3 +301,157 @@ void ST7735_InvertColors(bool invert) {
 }
 
 
+void ST7735_DrawHLine(uint8_t x, uint8_t x1, uint8_t y, uint16_t color) {
+	ST7735_Select();
+	uint16_t len = x1-x;
+	uint8_t data[] = {color >> 8, color & 0xFF};
+	ST7735_SetAddressWindow(x,y,x1,y);
+	for(int i = 0; i < len; i++) {
+		ST7735_WriteData(data, sizeof(data));
+	}
+	ST7735_Unselect();
+}
+
+void ST7735_DrawVLine(uint8_t x, uint8_t y, uint8_t y1, uint16_t color) {
+	ST7735_Select();
+	uint16_t len = y1-y;
+	uint8_t data[] = {color >> 8, color & 0xFF};
+	ST7735_SetAddressWindow(x,y,x,y1);
+	for(int i = 0;i < len; i++) {
+		ST7735_WriteData(data, sizeof(data));
+	}
+	ST7735_Unselect();
+}
+
+void drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color) {
+  int16_t f = 1 - r;
+  int16_t ddF_x = 1;
+  int16_t ddF_y = -2 * r;
+  int16_t x = 0;
+  int16_t y = r;
+
+  while (x < y) {
+    if (f >= 0) {
+      y--;
+      ddF_y += 2;
+      f += ddF_y;
+    }
+    x++;
+    ddF_x += 2;
+    f += ddF_x;
+    if (cornername & 0x4) {
+    	ST7735_DrawPixel(x0 + x, y0 + y, color);
+    	ST7735_DrawPixel(x0 + y, y0 + x, color);
+    }
+    if (cornername & 0x2) {
+    	ST7735_DrawPixel(x0 + x, y0 - y, color);
+    	ST7735_DrawPixel(x0 + y, y0 - x, color);
+    }
+    if (cornername & 0x8) {
+    	ST7735_DrawPixel(x0 - y, y0 + x, color);
+    	ST7735_DrawPixel(x0 - x, y0 + y, color);
+    }
+    if (cornername & 0x1) {
+    	ST7735_DrawPixel(x0 - y, y0 - x, color);
+    	ST7735_DrawPixel(x0 - x, y0 - y, color);
+    }
+  }
+}
+
+
+void drawRoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r, uint16_t color) {
+  int16_t max_radius = ((w < h) ? w : h) / 2;
+  if (r > max_radius)
+	  r = max_radius;
+
+  ST7735_DrawHLine(x + r, x + r + w - 2 * r, y, color);         // Top
+  ST7735_DrawHLine(x + r, x + r + w - 2 * r, y + h - 1, color); // Bottom
+  ST7735_DrawVLine(x, y + r, y + r + h - 2 * r, color);         // Left
+  ST7735_DrawVLine(x + w - 1, y + r, y + r + h - 2 * r, color); // Right
+
+  drawCircleHelper(x + r, y + r, r, 1, color);
+  drawCircleHelper(x + w - r - 1, y + r, r, 2, color);
+  drawCircleHelper(x + w - r - 1, y + h - r - 1, r, 4, color);
+  drawCircleHelper(x + r, y + h - r - 1, r, 8, color);
+}
+
+
+void SquareIcon(uint8_t x, uint8_t y, uint16_t color) {
+	drawRoundRect(x, y, 32, 32, 7, color);
+	drawRoundRect(x+1, y+1, 30, 30, 5, color);
+	ST7735_FillRectangle(x+4, y+6, 2, 12, color);
+	ST7735_FillRectangle(x+4, y+6, 11, 2, color);
+	ST7735_FillRectangle(x+15, y+6, 2, 20, color);
+	ST7735_FillRectangle(x+15, y+24, 12, 2, color);
+	ST7735_FillRectangle(x+26, y+14, 2, 12, color);
+}
+
+void TriangleIcon(uint8_t x, uint8_t y, uint16_t color) {
+  drawRoundRect(x, y, 32, 32, 7, color);
+  drawRoundRect(x+1, y+1, 30, 30, 5, color);
+  for (uint16_t a=0; a<3; a++) {
+	  //drawLine(SX+3, SY+3+a, SX+9, SY+14+a, color);
+  }
+  for (uint16_t a=0; a<3; a++) {
+	  //drawLine(SX+9, SY+3+a, SX+21, SY+26+a, color);
+  }
+  for (uint16_t a=0; a<3; a++) {
+	  //drawLine(SX+21, SY+15+a, SX+28, SY+26+a, color);
+  }
+}
+
+
+void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
+  // Update in subclasses if desired!
+  if (x0 == x1) {
+    if (y0 > y1)
+      _swap_int16_t(y0, y1);
+    ST7735_DrawVLine(x0, y0, y1 + 1, color);
+  } else if (y0 == y1) {
+    if (x0 > x1)
+      _swap_int16_t(x0, x1);
+    ST7735_DrawHLine(x0, x1 + 1, y0, color);
+  } else {
+    writeLine(x0, y0, x1, y1, color);
+  }
+}
+
+
+void writeLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
+  int16_t steep = abs(y1 - y0) > abs(x1 - x0);
+  if (steep) {
+    _swap_int16_t(x0, y0);
+    _swap_int16_t(x1, y1);
+  }
+
+  if (x0 > x1) {
+    _swap_int16_t(x0, x1);
+    _swap_int16_t(y0, y1);
+  }
+
+  int16_t dx, dy;
+  dx = x1 - x0;
+  dy = abs(y1 - y0);
+
+  int16_t err = dx / 2;
+  int16_t ystep;
+
+  if (y0 < y1) {
+    ystep = 1;
+  } else {
+    ystep = -1;
+  }
+
+  for (; x0 <= x1; x0++) {
+    if (steep) {
+    	ST7735_DrawPixel(y0, x0, color);
+    } else {
+    	ST7735_DrawPixel(x0, y0, color);
+    }
+    err -= dy;
+    if (err < 0) {
+      y0 += ystep;
+      err += dx;
+    }
+  }
+}

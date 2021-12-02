@@ -4,6 +4,8 @@
 
 #include "fonts.h"
 #include <stdbool.h>
+#include <math.h>
+#include <stdlib.h>
 
 #define ST7735_MADCTL_MY  0x80
 #define ST7735_MADCTL_MX  0x40
@@ -252,8 +254,9 @@ typedef struct {
 	uint16_t mainBackground;
 	uint16_t selectText;
 	uint16_t selectBackground;
-}ColorDef;
+}Color_TypeDef;
 
+void _swap_int16_t(int16_t a, int16_t b);
 
 // call before initializing any SPI devices
 void ST7735_Unselect();
@@ -261,7 +264,20 @@ void ST7735_Unselect();
 void ST7735_Init(void);
 void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color);
 void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor);
-void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, ColorDef color);
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, Color_TypeDef color);
+
+void ST7735_DrawHLine(uint8_t x,uint8_t x1,uint8_t y,uint16_t color);
+void ST7735_DrawVLine(uint8_t x,uint8_t y,uint8_t y1,uint16_t color);
+
+void SquareIcon(uint8_t x, uint8_t y, uint16_t color);
+void TriangleIcon (uint8_t x, uint8_t y, uint16_t color);
+
+void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
+void writeLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color);
+
+void drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color);
+void drawRoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r, uint16_t color);
+
 void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color);
 void ST7735_FillScreen(uint16_t color);
 void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data);

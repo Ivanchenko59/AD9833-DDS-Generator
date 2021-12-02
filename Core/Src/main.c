@@ -30,7 +30,9 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-ColorDef text_color = {ST7735_WHITE, ST7735_BLACK, ST7735_BLACK, ST7735_YELLOW};
+Color_TypeDef text_color = {ST7735_WHITE, ST7735_BLACK, ST7735_BLACK, ST7735_YELLOW};
+Selector_TypeDef Menu_Selector = Main_Menu;
+
 /* USER CODE END PTD */
 
 /* Private define ------------------------------------------------------------*/
@@ -109,36 +111,62 @@ int main(void)
   ST7735_FillRectangle(97, 70, 35, 2, ST7735_DARKGREY);
   ST7735_WriteString(21, 75, "MHz  kHz    Hz", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 
+  MHz = freq / 1000000;
+  kHz = freq / 1000 % 1000;
+  Hz = freq % 1000;
+  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
+  SquareIcon(15, 95, ST7735_LIGHTGREY);
+  TriangleIcon (55, 95, ST7735_LIGHTGREY);
+
+
   while (1)
   {
-
-	  //Edit_Frequency(edit_pos, &freq);
-
-	  Change_Position(&edit_pos);
-
-	  MHz = freq / 1000000;
-	  kHz = freq / 1000 % 1000;
-	  Hz = freq % 1000;
-
-	  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
-	  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, edit_pos, text_color);
 
 
 	  uint8_t button_status = Button_Get_Status();
 	  switch(button_status) {
 	  	  case Short_Press:
-	  		  if (edit_pos < MAX_DIGITS)
-	  			  edit_pos++;
-			  break;
-
+	  		  Menu_Selector++;
+	  		  break;
 	  	  case Long_Press:
-	  		  if (edit_pos > 0)
-	  			  edit_pos--;
-			  break;
-		  case False_Press:
-			  break;
+	  		  Menu_Selector--;
+	  		  break;
+	  	  case False_Press:
+	  		  break;
 	  }
 
+
+	  switch(Menu_Selector) {
+
+		  case Main_Menu:
+			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
+			  break;
+
+		  case Change_Wave_Form:
+
+			  break;
+
+		  case Change_Frequency:
+
+			  Change_Position(&edit_pos);
+
+			  MHz = freq / 1000000;
+			  kHz = freq / 1000 % 1000;
+			  Hz = freq % 1000;
+
+			  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
+			  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, edit_pos, text_color);
+
+			  //Edit_Frequency(edit_pos, &freq);
+			  break;
+		  case Sweep_Mode:
+
+			  break;
+		  default:
+			  break;
+
+
+	  }
 
     /* USER CODE END WHILE */
 

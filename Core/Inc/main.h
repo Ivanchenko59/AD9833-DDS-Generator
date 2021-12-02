@@ -72,6 +72,16 @@ void Change_Position(int8_t *edit_pos);
 /* USER CODE BEGIN Private defines */
 #define MAX_DIGITS 6
 #define MAX_FREQ_VALUE 5000000
+
+
+typedef enum {
+	Main_Menu,
+	Change_Wave_Form,
+	Change_Frequency,
+	Sweep_Mode,
+} Selector_TypeDef;
+
+
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
