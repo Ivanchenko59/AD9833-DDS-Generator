@@ -19,6 +19,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "gpio.h"
+#include "tim.h"
+#include "encoder.h"
+#include "st7735.h"
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */

@@ -11,8 +11,9 @@
 #ifndef INC_ENCODER_H_
 #define INC_ENCODER_H_
 
+//#include "stm32f4xx_hal.h"
 #include "main.h"
-#include "tim.h"
+//#include "tim.h"
 
 #define ENC_S1_Pin 			GPIO_PIN_8
 #define ENC_S1_GPIO_Port 	GPIOA

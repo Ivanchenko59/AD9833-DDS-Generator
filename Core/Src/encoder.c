@@ -9,6 +9,7 @@
  */
 
 #include "encoder.h"
+#include "tim.h"
 
 static int16_t new_count = 0;
 static int16_t prev_count = 0;

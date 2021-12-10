@@ -1,0 +1,5 @@
+AD9833.c:9:6:AD9833_Select	8	static
+AD9833.c:15:6:AD9833_Unselect	8	static
+AD9833.c:21:6:AD9833_WriteRegister	16	static
+AD9833.c:37:6:AD9833_Reset	16	static
+AD9833.c:53:6:AD9833_SetWaveform	16	static

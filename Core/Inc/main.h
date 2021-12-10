@@ -35,8 +35,6 @@ extern "C" {
 #include <stdio.h>
 #include <string.h>
 
-#include "st7735.h"
-#include "encoder.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

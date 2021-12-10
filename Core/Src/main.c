@@ -25,6 +25,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "encoder.h"
+#include "AD9833.h"
+#include "st7735.h"
 #include "fonts.h"
 /* USER CODE END Includes */
 

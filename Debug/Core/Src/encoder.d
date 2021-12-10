@@ -27,9 +27,7 @@ Core/Src/encoder.o: ../Core/Src/encoder.c ../Core/Inc/encoder.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
- D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/st7735.h \
- D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/fonts.h \
- ../Core/Inc/encoder.h ../Core/Inc/tim.h
+ ../Core/Inc/tim.h
 
 ../Core/Inc/encoder.h:
 
@@ -90,11 +88,5 @@ Core/Src/encoder.o: ../Core/Src/encoder.c ../Core/Inc/encoder.h \
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h:
-
-D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/st7735.h:
-
-D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/fonts.h:
-
-../Core/Inc/encoder.h:
 
 ../Core/Inc/tim.h:
