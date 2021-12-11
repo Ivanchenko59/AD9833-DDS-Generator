@@ -1,5 +1,8 @@
 AD9833.c:9:6:AD9833_Select	8	static
 AD9833.c:15:6:AD9833_Unselect	8	static
-AD9833.c:21:6:AD9833_WriteRegister	16	static
+AD9833.c:21:6:AD9833_WriteRegister	16	static,ignoring_inline_asm
 AD9833.c:37:6:AD9833_Reset	16	static
-AD9833.c:53:6:AD9833_SetWaveform	16	static
+AD9833.c:48:6:AD9833_SetWaveform	16	static
+AD9833.c:66:6:AD9833_SetFrequency	24	static
+AD9833.c:86:6:AD9833_SetPhase	24	static
+AD9833.c:95:6:AD9833_Init	16	static

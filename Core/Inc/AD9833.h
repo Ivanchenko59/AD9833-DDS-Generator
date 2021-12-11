@@ -10,13 +10,16 @@
 
 #include "main.h"
 
-#define CNTRL_REG	0x2100
-#define FREQ_REG	0x4000
-#define PHASE_REG	0xC000
+#define FMCLK	 		25000000
+#define BITS_PER_DEG 	11.3777777777778	// 4096 / 360
 
-#define SINE 		0x2000
-#define SQUARE 		0x2028
-#define TRIANGLE	0x2002
+#define CNTRL_REG		0x2100
+#define FREQ_REG		0x4000
+#define PHASE_REG		0xC000
+
+#define SINE	 		0x2000
+#define SQUARE 			0x2028
+#define TRIANGLE		0x2002
 
 
 typedef enum {
@@ -38,9 +41,9 @@ void AD9833_GetFrequency();
 void AD9833_SetWaveform(WaveDef Wave);
 void AD9833_GetWaveform();
 
-void AD9833_SetPhase();
+void AD9833_SetPhase(uint16_t phase_deg);
 void AD9833_GetPhase();
 
-void AD9833_Init();
+void AD9833_Init(WaveDef Wave, uint32_t freq, uint16_t phase_deg);
 
 #endif /* INC_AD9833_H_ */
