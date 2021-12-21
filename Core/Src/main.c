@@ -101,6 +101,7 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   ST7735_Init();
+  AD9833_Init(wave_sine, 10, 0);
   Encoder_Init();
   /* USER CODE END 2 */
 
@@ -118,13 +119,14 @@ int main(void)
   kHz = freq / 1000 % 1000;
   Hz = freq % 1000;
   sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
-  SquareIcon(15, 95, ST7735_LIGHTGREY);
-  TriangleIcon (55, 95, ST7735_LIGHTGREY);
+  SquareIcon(18, 92, ST7735_LIGHTGREY);
+  TriangleIcon(63, 92, ST7735_LIGHTGREY);
+  SinIcon(108, 92, ST7735_YELLOW);
 
 
   while (1)
   {
-
+//	  AD9833_SetFrequency(freq);
 
 	  uint8_t button_status = Button_Get_Status();
 	  switch(button_status) {
@@ -180,6 +182,7 @@ int main(void)
 
 
 
+/* USER CODE BEGIN 4 */
 void Edit_Frequency(int8_t position, uint32_t *p_freq)
 {
 	uint32_t pos_to_Hz = int_pow(10, position);
@@ -230,6 +233,9 @@ uint32_t int_pow(uint32_t base, uint8_t exp)
     }
     return result;
 }
+/* USER CODE END 4 */
+
+
 
 
 /**
@@ -275,9 +281,6 @@ void SystemClock_Config(void)
   }
 }
 
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
 /**
   * @brief  This function is executed in case of error occurrence.

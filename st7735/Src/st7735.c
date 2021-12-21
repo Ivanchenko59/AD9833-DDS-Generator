@@ -84,38 +84,37 @@ static const uint8_t
       100 };                  //     100 ms delay
 
 
-void _swap_int16_t(int16_t a, int16_t b) {
-	int16_t t = a;
-	a = b;
-	b = t;
-  }
-
-
-static void ST7735_Select() {
+static void ST7735_Select()
+{
     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_RESET);
 }
 
-void ST7735_Unselect() {
+void ST7735_Unselect()
+{
     HAL_GPIO_WritePin(ST7735_CS_GPIO_Port, ST7735_CS_Pin, GPIO_PIN_SET);
 }
 
-static void ST7735_Reset() {
+static void ST7735_Reset()
+{
     HAL_GPIO_WritePin(ST7735_RES_GPIO_Port, ST7735_RES_Pin, GPIO_PIN_RESET);
     HAL_Delay(5);
     HAL_GPIO_WritePin(ST7735_RES_GPIO_Port, ST7735_RES_Pin, GPIO_PIN_SET);
 }
 
-static void ST7735_WriteCommand(uint8_t cmd) {
+static void ST7735_WriteCommand(uint8_t cmd)
+{
     HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_RESET);
     HAL_SPI_Transmit(&ST7735_SPI_PORT, &cmd, sizeof(cmd), HAL_MAX_DELAY);
 }
 
-static void ST7735_WriteData(uint8_t* buff, size_t buff_size) {
+static void ST7735_WriteData(uint8_t* buff, size_t buff_size)
+{
     HAL_GPIO_WritePin(ST7735_DC_GPIO_Port, ST7735_DC_Pin, GPIO_PIN_SET);
     HAL_SPI_Transmit(&ST7735_SPI_PORT, buff, buff_size, HAL_MAX_DELAY);
 }
 
-static void ST7735_ExecuteCommandList(const uint8_t *addr) {
+static void ST7735_ExecuteCommandList(const uint8_t *addr)
+{
     uint8_t numCommands, numArgs;
     uint16_t ms;
 
@@ -141,7 +140,8 @@ static void ST7735_ExecuteCommandList(const uint8_t *addr) {
     }
 }
 
-static void ST7735_SetAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
+static void ST7735_SetAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
+{
     // column address set
     ST7735_WriteCommand(ST7735_CASET);
     uint8_t data[] = { 0x00, x0 + ST7735_XSTART, 0x00, x1 + ST7735_XSTART };
@@ -157,7 +157,8 @@ static void ST7735_SetAddressWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t 
     ST7735_WriteCommand(ST7735_RAMWR);
 }
 
-void ST7735_Init() {
+void ST7735_Init()
+{
     ST7735_Select();
     ST7735_Reset();
     ST7735_ExecuteCommandList(init_cmds1);
@@ -166,7 +167,8 @@ void ST7735_Init() {
     ST7735_Unselect();
 }
 
-void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
+void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color)
+{
     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT))
         return;
 
@@ -179,7 +181,8 @@ void ST7735_DrawPixel(uint16_t x, uint16_t y, uint16_t color) {
     ST7735_Unselect();
 }
 
-static void ST7735_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color, uint16_t bgcolor) {
+static void ST7735_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint16_t color, uint16_t bgcolor)
+{
     uint32_t i, b, j;
 
     ST7735_SetAddressWindow(x, y, x+font.width-1, y+font.height-1);
@@ -198,7 +201,8 @@ static void ST7735_WriteChar(uint16_t x, uint16_t y, char ch, FontDef font, uint
     }
 }
 
-void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor) {
+void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, uint16_t color, uint16_t bgcolor)
+{
     ST7735_Select();
 
     while(*str) {
@@ -225,7 +229,8 @@ void ST7735_WriteString(uint16_t x, uint16_t y, const char* str, FontDef font, u
 }
 
 
-void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, Color_TypeDef color) {
+void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontDef font, uint8_t select_pos, Color_TypeDef color)
+{
     ST7735_Select();
 
     uint8_t pos_counter = 6;
@@ -258,9 +263,8 @@ void ST7735_WriteStringWithSelect(uint16_t x, uint16_t y, const char* str, FontD
     ST7735_Unselect();
 }
 
-
-void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color) {
-    // clipping
+void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16_t color)
+{
     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
     if((x + w - 1) >= ST7735_WIDTH) w = ST7735_WIDTH - x;
     if((y + h - 1) >= ST7735_HEIGHT) h = ST7735_HEIGHT - y;
@@ -275,15 +279,16 @@ void ST7735_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint16
             HAL_SPI_Transmit(&ST7735_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
         }
     }
-
     ST7735_Unselect();
 }
 
-void ST7735_FillScreen(uint16_t color) {
+void ST7735_FillScreen(uint16_t color)
+{
     ST7735_FillRectangle(0, 0, ST7735_WIDTH, ST7735_HEIGHT, color);
 }
 
-void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data) {
+void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint16_t* data)
+{
     if((x >= ST7735_WIDTH) || (y >= ST7735_HEIGHT)) return;
     if((x + w - 1) >= ST7735_WIDTH) return;
     if((y + h - 1) >= ST7735_HEIGHT) return;
@@ -294,14 +299,16 @@ void ST7735_DrawImage(uint16_t x, uint16_t y, uint16_t w, uint16_t h, const uint
     ST7735_Unselect();
 }
 
-void ST7735_InvertColors(bool invert) {
+void ST7735_InvertColors(bool invert)
+{
     ST7735_Select();
     ST7735_WriteCommand(invert ? ST7735_INVON : ST7735_INVOFF);
     ST7735_Unselect();
 }
 
 
-void ST7735_DrawHLine(uint8_t x, uint8_t x1, uint8_t y, uint16_t color) {
+void ST7735_DrawHLine(uint8_t x, uint8_t x1, uint8_t y, uint16_t color)
+{
 	ST7735_Select();
 	uint16_t len = x1-x;
 	uint8_t data[] = {color >> 8, color & 0xFF};
@@ -312,7 +319,8 @@ void ST7735_DrawHLine(uint8_t x, uint8_t x1, uint8_t y, uint16_t color) {
 	ST7735_Unselect();
 }
 
-void ST7735_DrawVLine(uint8_t x, uint8_t y, uint8_t y1, uint16_t color) {
+void ST7735_DrawVLine(uint8_t x, uint8_t y, uint8_t y1, uint16_t color)
+{
 	ST7735_Select();
 	uint16_t len = y1-y;
 	uint8_t data[] = {color >> 8, color & 0xFF};
@@ -323,7 +331,8 @@ void ST7735_DrawVLine(uint8_t x, uint8_t y, uint8_t y1, uint16_t color) {
 	ST7735_Unselect();
 }
 
-void drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color) {
+void ST7735_drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)
+{
   int16_t f = 1 - r;
   int16_t ddF_x = 1;
   int16_t ddF_y = -2 * r;
@@ -359,7 +368,8 @@ void drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uin
 }
 
 
-void drawRoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r, uint16_t color) {
+void ST7735_drawRoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r, uint16_t color)
+{
   int16_t max_radius = ((w < h) ? w : h) / 2;
   if (r > max_radius)
 	  r = max_radius;
@@ -369,16 +379,19 @@ void drawRoundRect(int16_t x, int16_t y, int16_t w, int16_t h, int16_t r, uint16
   ST7735_DrawVLine(x, y + r, y + r + h - 2 * r, color);         // Left
   ST7735_DrawVLine(x + w - 1, y + r, y + r + h - 2 * r, color); // Right
 
-  drawCircleHelper(x + r, y + r, r, 1, color);
-  drawCircleHelper(x + w - r - 1, y + r, r, 2, color);
-  drawCircleHelper(x + w - r - 1, y + h - r - 1, r, 4, color);
-  drawCircleHelper(x + r, y + h - r - 1, r, 8, color);
+  ST7735_drawCircleHelper(x + r, y + r, r, 1, color);
+  ST7735_drawCircleHelper(x + w - r - 1, y + r, r, 2, color);
+  ST7735_drawCircleHelper(x + w - r - 1, y + h - r - 1, r, 4, color);
+  ST7735_drawCircleHelper(x + r, y + h - r - 1, r, 8, color);
 }
 
 
-void SquareIcon(uint8_t x, uint8_t y, uint16_t color) {
-	drawRoundRect(x, y, 32, 32, 7, color);
-	drawRoundRect(x+1, y+1, 30, 30, 5, color);
+
+
+void SquareIcon(uint8_t x, uint8_t y, uint16_t color)
+{
+	ST7735_drawRoundRect(x, y, 32, 32, 7, color);
+	ST7735_drawRoundRect(x+1, y+1, 30, 30, 5, color);
 	ST7735_FillRectangle(x+4, y+6, 2, 12, color);
 	ST7735_FillRectangle(x+4, y+6, 11, 2, color);
 	ST7735_FillRectangle(x+15, y+6, 2, 20, color);
@@ -386,72 +399,143 @@ void SquareIcon(uint8_t x, uint8_t y, uint16_t color) {
 	ST7735_FillRectangle(x+26, y+14, 2, 12, color);
 }
 
-void TriangleIcon(uint8_t x, uint8_t y, uint16_t color) {
-  drawRoundRect(x, y, 32, 32, 7, color);
-  drawRoundRect(x+1, y+1, 30, 30, 5, color);
-  for (uint16_t a=0; a<3; a++) {
-	  //drawLine(SX+3, SY+3+a, SX+9, SY+14+a, color);
-  }
-  for (uint16_t a=0; a<3; a++) {
-	  //drawLine(SX+9, SY+3+a, SX+21, SY+26+a, color);
-  }
-  for (uint16_t a=0; a<3; a++) {
-	  //drawLine(SX+21, SY+15+a, SX+28, SY+26+a, color);
-  }
+void TriangleIcon(uint8_t x, uint8_t y, uint16_t color)
+{
+	ST7735_drawRoundRect(x, y, 32, 32, 7, color);
+	ST7735_drawRoundRect(x + 1, y + 1, 30, 30, 5, color);
+	for (uint16_t a = 0; a < 3; a++) {
+		ST7735_DrawLine(x + 9, y + 3 + a, x + 3, y + 14 + a, color);
+		ST7735_DrawLine(x + 21, y + 26 + a, x + 9, y + 3 + a, color);
+		ST7735_DrawLine(x + 28, y + 15 + a, x + 21, y + 26 + a, color);
+	}
 }
 
 
-void drawLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
-  // Update in subclasses if desired!
-  if (x0 == x1) {
-    if (y0 > y1)
-      _swap_int16_t(y0, y1);
-    ST7735_DrawVLine(x0, y0, y1 + 1, color);
-  } else if (y0 == y1) {
-    if (x0 > x1)
-      _swap_int16_t(x0, x1);
-    ST7735_DrawHLine(x0, x1 + 1, y0, color);
-  } else {
-    writeLine(x0, y0, x1, y1, color);
-  }
+
+
+void SinIcon(uint8_t x, uint8_t y, uint16_t color)
+{
+	uint16_t Color = ((color & 0xFF00) >> 8) | ((color & 0xFF) << 8);
+	uint16_t Sine_Icon_only[676] = {
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0010 (16) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color,   // 0x0020 (32) pixels
+		Color, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0030 (48) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, Color, Color, Color, 0x0000, 0x0000,   // 0x0040 (64) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0050 (80) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0060 (96) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000,   // 0x0070 (112) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0080 (128) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000,   // 0x0090 (144) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color,   // 0x00A0 (160) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x00B0 (176) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x00C0 (192) pixels
+		Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x00D0 (208) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, 0x0000, 0x0000,   // 0x00E0 (224) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000,   // 0x00F0 (240) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0100 (256) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color,   // 0x0110 (272) pixels
+		Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color,   // 0x0120 (288) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0130 (304) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0140 (320) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0150 (336) pixels
+		Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color,   // 0x0160 (352) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0170 (368) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0180 (384) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0190 (400) pixels
+		0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color,   // 0x01A0 (416) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000,   // 0x01B0 (432) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x01C0 (448) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x01D0 (464) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x01E0 (480) pixels
+		0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, 0x0000, 0x0000,   // 0x01F0 (496) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000,   // 0x0200 (512) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0210 (528) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color,   // 0x0220 (544) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0230 (560) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0240 (576) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, 0x0000, 0x0000,   // 0x0250 (592) pixels
+		0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0260 (608) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0270 (624) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0280 (640) pixels
+		0x0000, Color, Color, Color, Color, Color, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,   // 0x0290 (656) pixels
+		0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, Color, Color, Color, 0x0000,   // 0x02A0 (672) pixels
+	};
+	ST7735_drawRoundRect(x, y, 32, 32, 7, color);
+	ST7735_drawRoundRect(x+1, y+1, 30, 30, 5, color);
+	ST7735_DrawImage(x+3, y+3, 26, 26, Sine_Icon_only);
 }
 
 
-void writeLine(int16_t x0, int16_t y0, int16_t x1, int16_t y1, uint16_t color) {
-  int16_t steep = abs(y1 - y0) > abs(x1 - x0);
-  if (steep) {
-    _swap_int16_t(x0, y0);
-    _swap_int16_t(x1, y1);
-  }
 
-  if (x0 > x1) {
-    _swap_int16_t(x0, x1);
-    _swap_int16_t(y0, y1);
-  }
 
-  int16_t dx, dy;
-  dx = x1 - x0;
-  dy = abs(y1 - y0);
 
-  int16_t err = dx / 2;
-  int16_t ystep;
 
-  if (y0 < y1) {
-    ystep = 1;
-  } else {
-    ystep = -1;
-  }
 
-  for (; x0 <= x1; x0++) {
-    if (steep) {
-    	ST7735_DrawPixel(y0, x0, color);
-    } else {
-    	ST7735_DrawPixel(x0, y0, color);
-    }
-    err -= dy;
-    if (err < 0) {
-      y0 += ystep;
-      err += dx;
-    }
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+void ST7735_DrawLine(int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color) {
+	int16_t dx = x2-x1;
+	int16_t dy = y2-y1;
+	int16_t dxsym = (dx > 0) ? 1 : -1;
+	int16_t dysym = (dy > 0) ? 1 : -1;
+
+	if (dx == 0) {
+		(y2 > y1) ? ST7735_DrawVLine(x1, y1, y2, color) : ST7735_DrawVLine(x1, y2, y1, color);
+		return;
+	}
+	if (dy == 0) {
+		(x2 > x1) ? ST7735_DrawHLine(x1, x2, y1, color) : ST7735_DrawHLine(x2, x1, y1, color);
+		return;
+	}
+
+	dx *= dxsym;
+	dy *= dysym;
+	int16_t dx2 = dx << 1;
+	int16_t dy2 = dy << 1;
+	int16_t di;
+
+	if (dx >= dy) {
+		di = dy2 - dx;
+		while (x1 != x2) {
+			ST7735_DrawPixel(x1, y1, color);
+			x1 += dxsym;
+			if (di < 0) {
+				di += dy2;
+			}
+			else {
+				di += dy2 - dx2;
+				y1 += dysym;
+			}
+		}
+	}
+	else {
+		di = dx2 - dy;
+		while (y1 != y2) {
+			ST7735_DrawPixel(x1, y1, color);
+			y1 += dysym;
+			if (di < 0) {
+				di += dx2;
+			}
+			else {
+				di += dx2 - dy2;
+				x1 += dxsym;
+			}
+		}
+	}
+	ST7735_DrawPixel(x1, y1, color);
 }

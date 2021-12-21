@@ -22,6 +22,7 @@
 #include "tim.h"
 #include "encoder.h"
 #include "st7735.h"
+#include "AD9833.h"
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
@@ -51,20 +52,28 @@ void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, ST7735_CS_Pin|ST7735_RES_Pin|ST7735_DC_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, AD9833_FSYNC_Pin|ST7735_CS_Pin|ST7735_RES_Pin|ST7735_DC_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PBPin PBPin PBPin PBPin */
+  GPIO_InitStruct.Pin = AD9833_FSYNC_Pin|ST7735_CS_Pin|ST7735_RES_Pin|ST7735_DC_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+  /*AD9833 PINs*/
+  GPIO_InitStruct.Pin = AD9833DATA|AD9833SCK|AD9833SS;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = ENC_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(ENC_BTN_GPIO_Port, &GPIO_InitStruct);
-
-  /*Configure GPIO pins : PBPin PBPin PBPin */
-  GPIO_InitStruct.Pin = ST7735_CS_Pin|ST7735_RES_Pin|ST7735_DC_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 }
 
