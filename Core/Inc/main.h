@@ -77,6 +77,7 @@ void Change_Position(int8_t *edit_pos, uint8_t MAX_POS);
 #define MAX_FREQ_VALUE 5000000
 #define MAX_DIGITS 7
 #define MAX_WAVEFORM 3
+#define APPLY_SHOW_TIME 1000
 
 typedef enum {
 	Main_Menu,

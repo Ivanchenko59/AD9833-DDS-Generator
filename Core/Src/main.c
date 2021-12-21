@@ -59,7 +59,8 @@ uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
 
 uint8_t short_press_flag = 0;
-
+uint8_t hide_apply_flag = 0;
+uint32_t curr_time = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -114,6 +115,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 
   ST7735_FillScreen(ST7735_BLACK);
+  ST7735_WriteString(10, 4, "AD9833 DDS GENERATOR", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 
   ST7735_FillRectangle(25, 70, 12, 2, ST7735_DARKGREY);
   ST7735_FillRectangle(49, 70, 35, 2, ST7735_DARKGREY);
@@ -128,23 +130,27 @@ int main(void)
   SquareIcon(63, 92, ST7735_LIGHTGREY);
   TriangleIcon(108, 92, ST7735_LIGHTGREY);
 
-
   while (1)
   {
 
 	  //TODO: Stop counting Encoder Tim because its influences to position
-
 	  button_status = Button_Get_Status();
 
 	  switch(Menu_Selector) {
 
 		  case Main_Menu:
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
+			  if((HAL_GetTick() - curr_time > APPLY_SHOW_TIME) && hide_apply_flag) {
+				  ST7735_WriteString(30, 30, "               ", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
+				  hide_apply_flag = 0;
+
+			  }
 			  if (button_status == Short_Press) Menu_Selector = Change_Frequency;
 			  if (button_status == Long_Press) Menu_Selector = Change_Wave_Form;
 			  break;
 
 		  case Change_Wave_Form:
+			  ST7735_WriteString(30, 30, "Change Waveform", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
 			  Change_Position(&waveform_select, MAX_WAVEFORM);
 			  if (waveform_select == wave_sine) {
@@ -165,14 +171,20 @@ int main(void)
 
 			  if (button_status == Short_Press) {
 				  AD9833_SetWaveform(waveform_select);
-				  //TODO: Apply status on top of display
 				  Menu_Selector = Main_Menu;
+				  ST7735_WriteString(30, 30, "    Apply!     ", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
+				  hide_apply_flag = 1;
+				  curr_time = HAL_GetTick();
 			  }
-			  if (button_status == Long_Press) Menu_Selector = Main_Menu; //TODO: Sweep?
+			  if (button_status == Long_Press) {
+				  Menu_Selector = Main_Menu;
+				  //or something else?
+			  }
 
 			  break;
 
 		  case Change_Frequency:
+			  ST7735_WriteString(30, 30, "Edit Frequency ", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 			  (short_press_flag) ? Edit_Frequency(edit_pos, &freq) : Change_Position(&edit_pos, MAX_DIGITS);
 
 			  MHz = freq / 1000000;
@@ -186,6 +198,10 @@ int main(void)
 				  short_press_flag = !short_press_flag;
 			  }
 			  if (button_status == Long_Press) {
+				  AD9833_SetFrequency(freq);
+				  ST7735_WriteString(30, 30, "    Apply!    ", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
+				  hide_apply_flag = 1;
+				  curr_time = HAL_GetTick();
 				  Menu_Selector = Main_Menu;
 				  short_press_flag = 0;
 			  }
@@ -196,6 +212,7 @@ int main(void)
 
 		  case Sweep_Mode:
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
+			  //TODO: Sweep?
 
 			  break;
 
