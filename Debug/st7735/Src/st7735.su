@@ -16,9 +16,9 @@ st7735.c:290:6:ST7735_DrawImage	24	static
 st7735.c:302:6:ST7735_InvertColors	16	static
 st7735.c:310:6:ST7735_DrawHLine	32	static
 st7735.c:322:6:ST7735_DrawVLine	32	static
-st7735.c:334:6:ST7735_drawCircleHelper	40	static
-st7735.c:371:6:ST7735_drawRoundRect	40	static
-st7735.c:391:6:SquareIcon	24	static
-st7735.c:402:6:TriangleIcon	40	static
-st7735.c:416:6:SinIcon	1392	static
-st7735.c:491:6:ST7735_DrawLine	40	static
+st7735.c:334:6:ST7735_DrawLine	40	static
+st7735.c:387:6:ST7735_drawCircleHelper	40	static
+st7735.c:424:6:ST7735_drawRoundRect	40	static
+st7735.c:444:6:SquareIcon	24	static
+st7735.c:455:6:TriangleIcon	40	static
+st7735.c:469:6:SineIcon	1392	static

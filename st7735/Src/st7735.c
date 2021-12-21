@@ -331,6 +331,59 @@ void ST7735_DrawVLine(uint8_t x, uint8_t y, uint8_t y1, uint16_t color)
 	ST7735_Unselect();
 }
 
+void ST7735_DrawLine(int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color)
+{
+	int16_t dx = x2-x1;
+	int16_t dy = y2-y1;
+	int16_t dxsym = (dx > 0) ? 1 : -1;
+	int16_t dysym = (dy > 0) ? 1 : -1;
+
+	if (dx == 0) {
+		(y2 > y1) ? ST7735_DrawVLine(x1, y1, y2, color) : ST7735_DrawVLine(x1, y2, y1, color);
+		return;
+	}
+	if (dy == 0) {
+		(x2 > x1) ? ST7735_DrawHLine(x1, x2, y1, color) : ST7735_DrawHLine(x2, x1, y1, color);
+		return;
+	}
+
+	dx *= dxsym;
+	dy *= dysym;
+	int16_t dx2 = dx << 1;
+	int16_t dy2 = dy << 1;
+	int16_t di;
+
+	if (dx >= dy) {
+		di = dy2 - dx;
+		while (x1 != x2) {
+			ST7735_DrawPixel(x1, y1, color);
+			x1 += dxsym;
+			if (di < 0) {
+				di += dy2;
+			}
+			else {
+				di += dy2 - dx2;
+				y1 += dysym;
+			}
+		}
+	}
+	else {
+		di = dx2 - dy;
+		while (y1 != y2) {
+			ST7735_DrawPixel(x1, y1, color);
+			y1 += dysym;
+			if (di < 0) {
+				di += dx2;
+			}
+			else {
+				di += dx2 - dy2;
+				x1 += dxsym;
+			}
+		}
+	}
+	ST7735_DrawPixel(x1, y1, color);
+}
+
 void ST7735_drawCircleHelper(int16_t x0, int16_t y0, int16_t r, uint8_t cornername, uint16_t color)
 {
   int16_t f = 1 - r;
@@ -413,7 +466,7 @@ void TriangleIcon(uint8_t x, uint8_t y, uint16_t color)
 
 
 
-void SinIcon(uint8_t x, uint8_t y, uint16_t color)
+void SineIcon(uint8_t x, uint8_t y, uint16_t color)
 {
 	uint16_t Color = ((color & 0xFF00) >> 8) | ((color & 0xFF) << 8);
 	uint16_t Sine_Icon_only[676] = {
@@ -465,77 +518,3 @@ void SinIcon(uint8_t x, uint8_t y, uint16_t color)
 	ST7735_DrawImage(x+3, y+3, 26, 26, Sine_Icon_only);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void ST7735_DrawLine(int16_t x1, int16_t y1, int16_t x2, int16_t y2, uint16_t color) {
-	int16_t dx = x2-x1;
-	int16_t dy = y2-y1;
-	int16_t dxsym = (dx > 0) ? 1 : -1;
-	int16_t dysym = (dy > 0) ? 1 : -1;
-
-	if (dx == 0) {
-		(y2 > y1) ? ST7735_DrawVLine(x1, y1, y2, color) : ST7735_DrawVLine(x1, y2, y1, color);
-		return;
-	}
-	if (dy == 0) {
-		(x2 > x1) ? ST7735_DrawHLine(x1, x2, y1, color) : ST7735_DrawHLine(x2, x1, y1, color);
-		return;
-	}
-
-	dx *= dxsym;
-	dy *= dysym;
-	int16_t dx2 = dx << 1;
-	int16_t dy2 = dy << 1;
-	int16_t di;
-
-	if (dx >= dy) {
-		di = dy2 - dx;
-		while (x1 != x2) {
-			ST7735_DrawPixel(x1, y1, color);
-			x1 += dxsym;
-			if (di < 0) {
-				di += dy2;
-			}
-			else {
-				di += dy2 - dx2;
-				y1 += dysym;
-			}
-		}
-	}
-	else {
-		di = dx2 - dy;
-		while (y1 != y2) {
-			ST7735_DrawPixel(x1, y1, color);
-			y1 += dysym;
-			if (di < 0) {
-				di += dx2;
-			}
-			else {
-				di += dx2 - dy2;
-				x1 += dxsym;
-			}
-		}
-	}
-	ST7735_DrawPixel(x1, y1, color);
-}

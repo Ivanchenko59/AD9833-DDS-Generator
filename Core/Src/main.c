@@ -51,10 +51,15 @@ Selector_TypeDef Menu_Selector = Main_Menu;
 
 /* USER CODE BEGIN PV */
 int8_t encoder_status;
+uint8_t button_status;
 uint32_t freq = 1000;
 int8_t edit_pos = 3;
+int8_t waveform_select = 2;
 uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
+
+uint8_t short_press_flag = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -119,41 +124,56 @@ int main(void)
   kHz = freq / 1000 % 1000;
   Hz = freq % 1000;
   sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
-  SquareIcon(18, 92, ST7735_LIGHTGREY);
-  TriangleIcon(63, 92, ST7735_LIGHTGREY);
-  SinIcon(108, 92, ST7735_YELLOW);
+  SineIcon(18, 92, ST7735_YELLOW);
+  SquareIcon(63, 92, ST7735_LIGHTGREY);
+  TriangleIcon(108, 92, ST7735_LIGHTGREY);
 
 
   while (1)
   {
-//	  AD9833_SetFrequency(freq);
 
-	  uint8_t button_status = Button_Get_Status();
-	  switch(button_status) {
-	  	  case Short_Press:
-	  		  Menu_Selector++;
-	  		  break;
-	  	  case Long_Press:
-	  		  Menu_Selector--;
-	  		  break;
-	  	  case False_Press:
-	  		  break;
-	  }
+	  //TODO: Stop counting Encoder Tim because its influences to position
 
+	  button_status = Button_Get_Status();
 
 	  switch(Menu_Selector) {
 
 		  case Main_Menu:
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
+			  if (button_status == Short_Press) Menu_Selector = Change_Frequency;
+			  if (button_status == Long_Press) Menu_Selector = Change_Wave_Form;
 			  break;
 
 		  case Change_Wave_Form:
+			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
+			  Change_Position(&waveform_select, MAX_WAVEFORM);
+			  if (waveform_select == wave_sine) {
+				  SineIcon(18, 92, ST7735_YELLOW);
+				  SquareIcon(63, 92, ST7735_LIGHTGREY);
+				  TriangleIcon(108, 92, ST7735_LIGHTGREY);
+			  }
+			  else if (waveform_select == wave_square) {
+				  SineIcon(18, 92, ST7735_LIGHTGREY);
+				  SquareIcon(63, 92, ST7735_YELLOW);
+				  TriangleIcon(108, 92, ST7735_LIGHTGREY);
+			  }
+			  else if (waveform_select == wave_triangle) {
+				  SineIcon(18, 92, ST7735_LIGHTGREY);
+				  SquareIcon(63, 92, ST7735_LIGHTGREY);
+				  TriangleIcon(108, 92, ST7735_YELLOW);
+			  }
+
+			  if (button_status == Short_Press) {
+				  AD9833_SetWaveform(waveform_select);
+				  //TODO: Apply status on top of display
+				  Menu_Selector = Main_Menu;
+			  }
+			  if (button_status == Long_Press) Menu_Selector = Main_Menu; //TODO: Sweep?
 
 			  break;
 
 		  case Change_Frequency:
-
-			  Change_Position(&edit_pos);
+			  (short_press_flag) ? Edit_Frequency(edit_pos, &freq) : Change_Position(&edit_pos, MAX_DIGITS);
 
 			  MHz = freq / 1000000;
 			  kHz = freq / 1000 % 1000;
@@ -162,14 +182,26 @@ int main(void)
 			  sprintf(Str_Buffer, "%1d,%03d,%03d", MHz, kHz, Hz);
 			  ST7735_WriteStringWithSelect(25, 50, Str_Buffer, Font_12x18, edit_pos, text_color);
 
-			  //Edit_Frequency(edit_pos, &freq);
+			  if (button_status == Short_Press) {
+				  short_press_flag = !short_press_flag;
+			  }
+			  if (button_status == Long_Press) {
+				  Menu_Selector = Main_Menu;
+				  short_press_flag = 0;
+			  }
+
+
+
 			  break;
+
 		  case Sweep_Mode:
+			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
 
 			  break;
+
 		  default:
+			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
 			  break;
-
 
 	  }
 
@@ -206,16 +238,16 @@ void Edit_Frequency(int8_t position, uint32_t *p_freq)
 		*p_freq = edited_freq;
 }
 
-void Change_Position(int8_t *edit_pos)
+void Change_Position(int8_t *edit_pos, uint8_t MAX_POS)
 {
 	switch(Encoder_Get_Status()) {
 		case Incremented:
 			(*edit_pos)--;
-			if (*edit_pos < 0) *edit_pos = MAX_DIGITS;
+			if (*edit_pos < 0) *edit_pos = MAX_POS - 1;
 			break;
 		case Decremented:
 			(*edit_pos)++;
-			if (*edit_pos >= MAX_DIGITS + 1) *edit_pos = 0;
+			if (*edit_pos >= MAX_POS) *edit_pos = 0;
 			break;
 		case Neutral:
 			break;

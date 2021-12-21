@@ -58,7 +58,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 uint32_t int_pow(uint32_t base, uint8_t exp);
 void Edit_Frequency(int8_t position, uint32_t *p_freq);
-void Change_Position(int8_t *edit_pos);
+void Change_Position(int8_t *edit_pos, uint8_t MAX_POS);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -74,9 +74,9 @@ void Change_Position(int8_t *edit_pos);
 
 
 /* USER CODE BEGIN Private defines */
-#define MAX_DIGITS 6
 #define MAX_FREQ_VALUE 5000000
-
+#define MAX_DIGITS 7
+#define MAX_WAVEFORM 3
 
 typedef enum {
 	Main_Menu,
