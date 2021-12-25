@@ -9,51 +9,21 @@
 void AD9833_Select(void)
 {
 	HAL_GPIO_WritePin(AD9833_FSYNC_GPIO_Port, AD9833_FSYNC_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(AD9833PORT,AD9833SS,GPIO_PIN_RESET); //+
 }
 
 
 void AD9833_Unselect(void)
 {
 	HAL_GPIO_WritePin(AD9833_FSYNC_GPIO_Port, AD9833_FSYNC_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(AD9833PORT,AD9833SS,GPIO_PIN_SET); //high = deselected	 //+
 }
 
 
 void AD9833_WriteRegister(uint16_t data)
 {
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-
-	uint8_t LByte = data & 0x00ff; //Low Byte
-
-	uint8_t HByte = data >> 8;  //High Byte
-
-	HAL_SPI_Transmit(&AD9833_SPI_PORT, &LByte, 1, HAL_MAX_DELAY);
+	uint8_t LByte = data & 0xff;
+	uint8_t HByte = (data >> 8) & 0xff;
 	HAL_SPI_Transmit(&AD9833_SPI_PORT, &HByte, 1, HAL_MAX_DELAY);
-
-//	for (uint8_t i = 0; i < 16 ; i++) {
-//		if(data & 0x8000) HAL_GPIO_WritePin(AD9833PORT,AD9833DATA,GPIO_PIN_SET);   //bit=1, Set High
-//		else HAL_GPIO_WritePin(AD9833PORT,AD9833DATA,GPIO_PIN_RESET);        //bit=0, Set Low
-//	    asm("NOP");
-//		HAL_GPIO_WritePin(AD9833PORT,AD9833SCK,GPIO_PIN_RESET);             //Data is valid on falling edge
-//		asm("NOP");
-//		HAL_GPIO_WritePin(AD9833PORT,AD9833SCK,GPIO_PIN_SET);
-//		data = data<<1; //Shift left by 1 bit
-//	}
-//	HAL_GPIO_WritePin(AD9833PORT,AD9833DATA,GPIO_PIN_RESET);                    //Idle low
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
-	asm("NOP");
+	HAL_SPI_Transmit(&AD9833_SPI_PORT, &LByte, 1, HAL_MAX_DELAY);
 }
 
 void AD9833_Reset(uint8_t reset_state)
@@ -128,12 +98,8 @@ void AD9833_Init(WaveDef Wave, uint32_t freq, uint16_t phase_deg)
 {
 //	AD9833_Reset(1); //dont need
 
-	HAL_GPIO_WritePin(AD9833PORT,AD9833DATA,GPIO_PIN_SET); // Set All SPI pings to High
-	HAL_GPIO_WritePin(AD9833PORT,AD9833SCK,GPIO_PIN_SET);  // Set All SPI pings to High
-	HAL_GPIO_WritePin(AD9833PORT,AD9833SS,GPIO_PIN_SET);   // Set All SPI pings to High
-
+	AD9833_SetWaveform(Wave);
 	AD9833_SetFrequency(freq);
 
-	AD9833_SetWaveform(Wave);
 //	AD9833_SetPhase(phase_deg);
 }

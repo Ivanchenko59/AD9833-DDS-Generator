@@ -107,7 +107,7 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   ST7735_Init();
-  AD9833_Init(wave_sine, 10, 0);
+  AD9833_Init(wave_sine, 1000, 0);
   Encoder_Init();
   /* USER CODE END 2 */
 
@@ -132,7 +132,7 @@ int main(void)
 
   while (1)
   {
-
+	  //TODO: After change freq, waveform set sine
 	  //TODO: Stop counting Encoder Tim because its influences to position
 	  button_status = Button_Get_Status();
 
