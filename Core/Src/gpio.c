@@ -61,14 +61,6 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-  /*AD9833 PINs*/
-  GPIO_InitStruct.Pin = AD9833DATA|AD9833SCK|AD9833SS;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-
   /*Configure GPIO pin : PtPin */
   GPIO_InitStruct.Pin = ENC_BTN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;

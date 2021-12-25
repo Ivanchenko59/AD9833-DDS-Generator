@@ -52,8 +52,8 @@ Selector_TypeDef Menu_Selector = Main_Menu;
 /* USER CODE BEGIN PV */
 int8_t encoder_status;
 uint8_t button_status;
-uint32_t freq = 1000;
-int8_t edit_pos = 3;
+uint32_t freq = 100;
+int8_t edit_pos = 2;
 int8_t waveform_select = 2;
 uint16_t MHz, kHz, Hz;
 char Str_Buffer[10];
@@ -107,7 +107,7 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   ST7735_Init();
-  AD9833_Init(wave_sine, 1000, 0);
+  AD9833_Init(wave_sine, freq, 0);
   Encoder_Init();
   /* USER CODE END 2 */
 
@@ -132,12 +132,12 @@ int main(void)
 
   while (1)
   {
-	  //TODO: After change freq, waveform set sine
+	  //TODO: Update SPI init AD9833 in .ioc file (Devider, Polarity)
+	  //TODO: include lib in private block in .h file
 	  //TODO: Stop counting Encoder Tim because its influences to position
 	  button_status = Button_Get_Status();
 
 	  switch(Menu_Selector) {
-
 		  case Main_Menu:
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
 			  if((HAL_GetTick() - curr_time > APPLY_SHOW_TIME) && hide_apply_flag) {
