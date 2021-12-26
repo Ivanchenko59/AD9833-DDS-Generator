@@ -19,12 +19,11 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "gpio.h"
-#include "tim.h"
-#include "encoder.h"
-#include "st7735.h"
-#include "AD9833.h"
-/* USER CODE BEGIN 0 */
 
+/* USER CODE BEGIN 0 */
+#include "AD9833.h"
+#include "st7735.h"
+#include "encoder.h"
 /* USER CODE END 0 */
 
 /*----------------------------------------------------------------------------*/

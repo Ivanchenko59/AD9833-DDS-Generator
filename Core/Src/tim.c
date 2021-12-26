@@ -19,9 +19,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "tim.h"
-#include "encoder.h"
-/* USER CODE BEGIN 0 */
 
+/* USER CODE BEGIN 0 */
+#include "encoder.h"
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim1;
