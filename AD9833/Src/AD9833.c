@@ -5,6 +5,9 @@
  * This contains functions for working with
  * AD9833 signal generator.
  *
+ * !!!!IMPORTANT!!!!
+ * Setup Hardware SPI to POLATRITY LOW, PHASE 1 EDGE
+ *
  * Offical Documents:
  * https://www.analog.com/media/en/technical-documentation/application-notes/AN-1070.pdf
  * https://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf

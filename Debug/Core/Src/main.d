@@ -28,7 +28,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
  ../Core/Inc/spi.h ../Core/Inc/main.h ../Core/Inc/tim.h \
- ../Core/Inc/gpio.h ../Core/Inc/encoder.h ../Core/Inc/AD9833.h \
+ ../Core/Inc/gpio.h ../Core/Inc/encoder.h \
+ D:/STM32/STM32CubeIDE/DDS_AD9833/AD9833/Inc/AD9833.h \
  D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/st7735.h \
  D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/fonts.h \
  D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/fonts.h
@@ -101,7 +102,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 
 ../Core/Inc/encoder.h:
 
-../Core/Inc/AD9833.h:
+D:/STM32/STM32CubeIDE/DDS_AD9833/AD9833/Inc/AD9833.h:
 
 D:/STM32/STM32CubeIDE/DDS_AD9833/st7735/Inc/st7735.h:
 

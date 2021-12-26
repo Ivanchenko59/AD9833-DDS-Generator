@@ -107,8 +107,8 @@ int main(void)
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
   ST7735_Init();
-  AD9833_Init(wave_sine, freq, 0);
   Encoder_Init();
+  AD9833_Init(wave_sine, freq, 0);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -143,7 +143,6 @@ int main(void)
 			  if((HAL_GetTick() - curr_time > APPLY_SHOW_TIME) && hide_apply_flag) {
 				  ST7735_WriteString(30, 30, "               ", Font_7x10, ST7735_DARKGREY, ST7735_BLACK);
 				  hide_apply_flag = 0;
-
 			  }
 			  if (button_status == Short_Press) Menu_Selector = Change_Frequency;
 			  if (button_status == Long_Press) Menu_Selector = Change_Wave_Form;
@@ -180,7 +179,6 @@ int main(void)
 				  Menu_Selector = Main_Menu;
 				  //or something else?
 			  }
-
 			  break;
 
 		  case Change_Frequency:
@@ -205,9 +203,6 @@ int main(void)
 				  Menu_Selector = Main_Menu;
 				  short_press_flag = 0;
 			  }
-
-
-
 			  break;
 
 		  case Sweep_Mode:
@@ -219,7 +214,6 @@ int main(void)
 		  default:
 			  ST7735_WriteString(25, 50, Str_Buffer, Font_12x18, ST7735_WHITE, ST7735_BLACK);
 			  break;
-
 	  }
 
     /* USER CODE END WHILE */

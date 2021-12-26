@@ -39,11 +39,11 @@ d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.st
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-lock.o)
                               d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(lib_a-mlock.o) (__retarget_lock_acquire_recursive)
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_muldf3.o)
-                              ./Core/Src/AD9833.o (__aeabi_dmul)
+                              ./AD9833/Src/AD9833.o (__aeabi_dmul)
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_addsubdf3.o)
-                              ./Core/Src/AD9833.o (__aeabi_i2d)
+                              ./AD9833/Src/AD9833.o (__aeabi_i2d)
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a(_arm_fixunsdfsi.o)
-                              ./Core/Src/AD9833.o (__aeabi_d2uiz)
+                              ./AD9833/Src/AD9833.o (__aeabi_d2uiz)
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a(_aeabi_uldivmod.o)
                               ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o (__aeabi_uldivmod)
 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a(_udivmoddi4.o)
@@ -97,81 +97,81 @@ Discarded input sections
  .ARM.exidx     0x0000000000000000       0x10 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
  .ARM.attributes
                 0x0000000000000000       0x1c d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .group         0x0000000000000000        0xc ./Core/Src/AD9833.o
- .text          0x0000000000000000        0x0 ./Core/Src/AD9833.o
- .data          0x0000000000000000        0x0 ./Core/Src/AD9833.o
- .bss           0x0000000000000000        0x0 ./Core/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .group         0x0000000000000000        0xc ./AD9833/Src/AD9833.o
+ .text          0x0000000000000000        0x0 ./AD9833/Src/AD9833.o
+ .data          0x0000000000000000        0x0 ./AD9833/Src/AD9833.o
+ .bss           0x0000000000000000        0x0 ./AD9833/Src/AD9833.o
  .text.AD9833_SleepMode
-                0x0000000000000000       0x20 ./Core/Src/AD9833.o
+                0x0000000000000000       0x20 ./AD9833/Src/AD9833.o
  .group         0x0000000000000000        0xc ./Core/Src/encoder.o
  .group         0x0000000000000000        0xc ./Core/Src/encoder.o
  .group         0x0000000000000000        0xc ./Core/Src/encoder.o
@@ -463,6 +463,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/gpio.o
  .debug_macro   0x0000000000000000       0x20 ./Core/Src/gpio.o
  .debug_macro   0x0000000000000000       0x4c ./Core/Src/gpio.o
+ .debug_macro   0x0000000000000000       0x9a ./Core/Src/gpio.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
  .group         0x0000000000000000        0xc ./Core/Src/main.o
@@ -613,7 +614,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x20 ./Core/Src/main.o
  .debug_macro   0x0000000000000000       0x4c ./Core/Src/main.o
  .debug_macro   0x0000000000000000       0x3a ./Core/Src/main.o
- .debug_macro   0x0000000000000000       0xa0 ./Core/Src/main.o
  .debug_macro   0x0000000000000000       0x22 ./Core/Src/main.o
  .debug_macro   0x0000000000000000      0x1a9 ./Core/Src/main.o
  .debug_macro   0x0000000000000000       0x16 ./Core/Src/main.o
@@ -3862,7 +3862,7 @@ Linker script and memory map
 LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crti.o
 LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
 LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard/crt0.o
-LOAD ./Core/Src/AD9833.o
+LOAD ./AD9833/Src/AD9833.o
 LOAD ./Core/Src/encoder.o
 LOAD ./Core/Src/gpio.o
 LOAD ./Core/Src/main.o
@@ -3960,32 +3960,32 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
                 0x0000000008000b80                __aeabi_ldiv0
  *(.text*)
  .text.AD9833_Select
-                0x0000000008000b84       0x18 ./Core/Src/AD9833.o
+                0x0000000008000b84       0x18 ./AD9833/Src/AD9833.o
                 0x0000000008000b84                AD9833_Select
  .text.AD9833_Unselect
-                0x0000000008000b9c       0x18 ./Core/Src/AD9833.o
+                0x0000000008000b9c       0x18 ./AD9833/Src/AD9833.o
                 0x0000000008000b9c                AD9833_Unselect
  .text.AD9833_WriteRegister
-                0x0000000008000bb4       0x50 ./Core/Src/AD9833.o
+                0x0000000008000bb4       0x50 ./AD9833/Src/AD9833.o
                 0x0000000008000bb4                AD9833_WriteRegister
  .text.AD9833_WriteCfgReg
-                0x0000000008000c04       0x9c ./Core/Src/AD9833.o
+                0x0000000008000c04       0x9c ./AD9833/Src/AD9833.o
                 0x0000000008000c04                AD9833_WriteCfgReg
  .text.AD9833_SetWaveform
-                0x0000000008000ca0       0x44 ./Core/Src/AD9833.o
+                0x0000000008000ca0       0x44 ./AD9833/Src/AD9833.o
                 0x0000000008000ca0                AD9833_SetWaveform
  .text.AD9833_SetFrequency
-                0x0000000008000ce4       0x6c ./Core/Src/AD9833.o
+                0x0000000008000ce4       0x6c ./AD9833/Src/AD9833.o
                 0x0000000008000ce4                AD9833_SetFrequency
  .text.AD9833_SetPhase
-                0x0000000008000d50       0x7c ./Core/Src/AD9833.o
+                0x0000000008000d50       0x7c ./AD9833/Src/AD9833.o
                 0x0000000008000d50                AD9833_SetPhase
  .text.AD9833_Init
-                0x0000000008000dcc       0x3e ./Core/Src/AD9833.o
+                0x0000000008000dcc       0x3e ./AD9833/Src/AD9833.o
                 0x0000000008000dcc                AD9833_Init
  *fill*         0x0000000008000e0a        0x2 
  .text.AD9833_OutputEnable
-                0x0000000008000e0c       0x2c ./Core/Src/AD9833.o
+                0x0000000008000e0c       0x2c ./AD9833/Src/AD9833.o
                 0x0000000008000e0c                AD9833_OutputEnable
  .text.Encoder_Init
                 0x0000000008000e38       0x14 ./Core/Src/encoder.o
@@ -4483,19 +4483,19 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
  .bss           0x0000000020000090       0x1c d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  *(.bss*)
  .bss._waveform
-                0x00000000200000ac        0x1 ./Core/Src/AD9833.o
+                0x00000000200000ac        0x1 ./AD9833/Src/AD9833.o
                 0x00000000200000ac                _waveform
  .bss._sleep_mode
-                0x00000000200000ad        0x1 ./Core/Src/AD9833.o
+                0x00000000200000ad        0x1 ./AD9833/Src/AD9833.o
                 0x00000000200000ad                _sleep_mode
  .bss._freq_source
-                0x00000000200000ae        0x1 ./Core/Src/AD9833.o
+                0x00000000200000ae        0x1 ./AD9833/Src/AD9833.o
                 0x00000000200000ae                _freq_source
  .bss._phase_source
-                0x00000000200000af        0x1 ./Core/Src/AD9833.o
+                0x00000000200000af        0x1 ./AD9833/Src/AD9833.o
                 0x00000000200000af                _phase_source
  .bss._reset_state
-                0x00000000200000b0        0x1 ./Core/Src/AD9833.o
+                0x00000000200000b0        0x1 ./AD9833/Src/AD9833.o
                 0x00000000200000b0                _reset_state
  *fill*         0x00000000200000b1        0x1 
  .bss.new_count
@@ -4587,7 +4587,7 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
  .ARM.attributes
                 0x000000000000001e       0x34 d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard/crtbegin.o
  .ARM.attributes
-                0x0000000000000052       0x34 ./Core/Src/AD9833.o
+                0x0000000000000052       0x34 ./AD9833/Src/AD9833.o
  .ARM.attributes
                 0x0000000000000086       0x34 ./Core/Src/encoder.o
  .ARM.attributes
@@ -4682,30 +4682,30 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
 LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libm.a
 LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v7e-m+fp/hard\libgcc.a
 
-.debug_info     0x0000000000000000    0x14485
- .debug_info    0x0000000000000000     0x1260 ./Core/Src/AD9833.o
+.debug_info     0x0000000000000000    0x14482
+ .debug_info    0x0000000000000000     0x1260 ./AD9833/Src/AD9833.o
  .debug_info    0x0000000000001260     0x1210 ./Core/Src/encoder.o
  .debug_info    0x0000000000002470     0x16df ./Core/Src/gpio.o
- .debug_info    0x0000000000003b4f     0x1a85 ./Core/Src/main.o
- .debug_info    0x00000000000055d4     0x1384 ./Core/Src/spi.o
- .debug_info    0x0000000000006958      0xc62 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_info    0x00000000000075ba      0xac4 ./Core/Src/stm32f4xx_it.o
- .debug_info    0x000000000000807e      0xa25 ./Core/Src/sysmem.o
- .debug_info    0x0000000000008aa3      0x5d0 ./Core/Src/system_stm32f4xx.o
- .debug_info    0x0000000000009073     0x14ae ./Core/Src/tim.o
- .debug_info    0x000000000000a521       0x22 ./Core/Startup/startup_stm32f401ccux.o
- .debug_info    0x000000000000a543      0x93d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_info    0x000000000000ae80      0xe41 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_info    0x000000000000bcc1      0x862 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_info    0x000000000000c523      0x9bd ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_info    0x000000000000cee0     0x17b8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_info    0x000000000000e698     0x2c1a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_info    0x00000000000112b2     0x159a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_info    0x000000000001284c      0x1ae ./st7735/Src/fonts.o
- .debug_info    0x00000000000129fa     0x1a8b ./st7735/Src/st7735.o
+ .debug_info    0x0000000000003b4f     0x1a82 ./Core/Src/main.o
+ .debug_info    0x00000000000055d1     0x1384 ./Core/Src/spi.o
+ .debug_info    0x0000000000006955      0xc62 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_info    0x00000000000075b7      0xac4 ./Core/Src/stm32f4xx_it.o
+ .debug_info    0x000000000000807b      0xa25 ./Core/Src/sysmem.o
+ .debug_info    0x0000000000008aa0      0x5d0 ./Core/Src/system_stm32f4xx.o
+ .debug_info    0x0000000000009070     0x14ae ./Core/Src/tim.o
+ .debug_info    0x000000000000a51e       0x22 ./Core/Startup/startup_stm32f401ccux.o
+ .debug_info    0x000000000000a540      0x93d ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_info    0x000000000000ae7d      0xe41 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_info    0x000000000000bcbe      0x862 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_info    0x000000000000c520      0x9bd ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_info    0x000000000000cedd     0x17b8 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_info    0x000000000000e695     0x2c1a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_info    0x00000000000112af     0x159a ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_info    0x0000000000012849      0x1ae ./st7735/Src/fonts.o
+ .debug_info    0x00000000000129f7     0x1a8b ./st7735/Src/st7735.o
 
 .debug_abbrev   0x0000000000000000     0x29d8
- .debug_abbrev  0x0000000000000000      0x228 ./Core/Src/AD9833.o
+ .debug_abbrev  0x0000000000000000      0x228 ./AD9833/Src/AD9833.o
  .debug_abbrev  0x0000000000000228      0x27b ./Core/Src/encoder.o
  .debug_abbrev  0x00000000000004a3      0x21c ./Core/Src/gpio.o
  .debug_abbrev  0x00000000000006bf      0x31c ./Core/Src/main.o
@@ -4728,7 +4728,7 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
 
 .debug_aranges  0x0000000000000000      0xd40
  .debug_aranges
-                0x0000000000000000       0x68 ./Core/Src/AD9833.o
+                0x0000000000000000       0x68 ./AD9833/Src/AD9833.o
  .debug_aranges
                 0x0000000000000068       0x38 ./Core/Src/encoder.o
  .debug_aranges
@@ -4769,7 +4769,7 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
                 0x0000000000000c68       0xd8 ./st7735/Src/st7735.o
 
 .debug_ranges   0x0000000000000000      0xc00
- .debug_ranges  0x0000000000000000       0x58 ./Core/Src/AD9833.o
+ .debug_ranges  0x0000000000000000       0x58 ./AD9833/Src/AD9833.o
  .debug_ranges  0x0000000000000058       0x28 ./Core/Src/encoder.o
  .debug_ranges  0x0000000000000080       0x10 ./Core/Src/gpio.o
  .debug_ranges  0x0000000000000090       0x38 ./Core/Src/main.o
@@ -4789,173 +4789,173 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
  .debug_ranges  0x00000000000009e0      0x158 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
  .debug_ranges  0x0000000000000b38       0xc8 ./st7735/Src/st7735.o
 
-.debug_macro    0x0000000000000000    0x18213
- .debug_macro   0x0000000000000000      0x37b ./Core/Src/AD9833.o
- .debug_macro   0x000000000000037b      0xaa8 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000000e23      0x29b ./Core/Src/AD9833.o
- .debug_macro   0x00000000000010be       0x2e ./Core/Src/AD9833.o
- .debug_macro   0x00000000000010ec       0x28 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001114       0x22 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001136       0x8e ./Core/Src/AD9833.o
- .debug_macro   0x00000000000011c4       0x51 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001215      0x103 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001318       0x6a ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001382      0x1df ./Core/Src/AD9833.o
- .debug_macro   0x0000000000001561       0x1c ./Core/Src/AD9833.o
- .debug_macro   0x000000000000157d       0x22 ./Core/Src/AD9833.o
- .debug_macro   0x000000000000159f       0xdf ./Core/Src/AD9833.o
- .debug_macro   0x000000000000167e     0x102d ./Core/Src/AD9833.o
- .debug_macro   0x00000000000026ab      0x11f ./Core/Src/AD9833.o
- .debug_macro   0x00000000000027ca     0xb86c ./Core/Src/AD9833.o
- .debug_macro   0x000000000000e036       0x6d ./Core/Src/AD9833.o
- .debug_macro   0x000000000000e0a3     0x3666 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000011709      0x174 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001187d       0x5c ./Core/Src/AD9833.o
- .debug_macro   0x00000000000118d9      0x416 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000011cef      0x9fe ./Core/Src/AD9833.o
- .debug_macro   0x00000000000126ed      0x116 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000012803       0xf8 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000128fb       0xa5 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000129a0      0x15f ./Core/Src/AD9833.o
- .debug_macro   0x0000000000012aff      0x287 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000012d86       0x5f ./Core/Src/AD9833.o
- .debug_macro   0x0000000000012de5      0x236 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001301b      0x132 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001314d      0x23a ./Core/Src/AD9833.o
- .debug_macro   0x0000000000013387       0x2e ./Core/Src/AD9833.o
- .debug_macro   0x00000000000133b5      0x11a ./Core/Src/AD9833.o
- .debug_macro   0x00000000000134cf       0x85 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000013554       0x89 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000135dd      0x225 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000013802      0x8d1 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000140d3       0x47 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001411a      0x126 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014240       0x52 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014292       0x18 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000142aa       0x3c ./Core/Src/AD9833.o
- .debug_macro   0x00000000000142e6       0x34 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001431a       0x16 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014330       0x35 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014365      0x333 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014698       0x10 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000146a8       0x16 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000146be       0x43 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014701       0x34 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014735       0x10 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014745       0x58 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001479d       0x71 ./Core/Src/AD9833.o
- .debug_macro   0x000000000001480e       0x1c ./Core/Src/AD9833.o
- .debug_macro   0x000000000001482a      0x12a ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014954       0x10 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014964       0x1c ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014980       0x52 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000149d2       0x22 ./Core/Src/AD9833.o
- .debug_macro   0x00000000000149f4       0x10 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014a04       0x40 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014a44       0xd5 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014b19       0x1c ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014b35       0x3d ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014b72       0x16 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014b88      0x145 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014ccd       0x16 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014ce3       0x20 ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014d03       0x4c ./Core/Src/AD9833.o
- .debug_macro   0x0000000000014d4f       0x9a ./Core/Src/AD9833.o
+.debug_macro    0x0000000000000000    0x1821d
+ .debug_macro   0x0000000000000000      0x37b ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000037b      0xaa8 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000000e23      0x29b ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000010be       0x2e ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000010ec       0x28 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001114       0x22 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001136       0x8e ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000011c4       0x51 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001215      0x103 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001318       0x6a ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001382      0x1df ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000001561       0x1c ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000157d       0x22 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000159f       0xdf ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000167e     0x102d ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000026ab      0x11f ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000027ca     0xb86c ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000e036       0x6d ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000000e0a3     0x3666 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000011709      0x174 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001187d       0x5c ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000118d9      0x416 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000011cef      0x9fe ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000126ed      0x116 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000012803       0xf8 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000128fb       0xa5 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000129a0      0x15f ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000012aff      0x287 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000012d86       0x5f ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000012de5      0x236 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001301b      0x132 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001314d      0x23a ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000013387       0x2e ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000133b5      0x11a ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000134cf       0x85 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000013554       0x89 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000135dd      0x225 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000013802      0x8d1 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000140d3       0x47 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001411a      0x126 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014240       0x52 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014292       0x18 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000142aa       0x3c ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000142e6       0x34 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001431a       0x16 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014330       0x35 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014365      0x333 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014698       0x10 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000146a8       0x16 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000146be       0x43 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014701       0x34 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014735       0x10 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014745       0x58 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001479d       0x71 ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001480e       0x1c ./AD9833/Src/AD9833.o
+ .debug_macro   0x000000000001482a      0x12a ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014954       0x10 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014964       0x1c ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014980       0x52 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000149d2       0x22 ./AD9833/Src/AD9833.o
+ .debug_macro   0x00000000000149f4       0x10 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014a04       0x40 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014a44       0xd5 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014b19       0x1c ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014b35       0x3d ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014b72       0x16 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014b88      0x145 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014ccd       0x16 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014ce3       0x20 ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014d03       0x4c ./AD9833/Src/AD9833.o
+ .debug_macro   0x0000000000014d4f       0x9a ./AD9833/Src/AD9833.o
  .debug_macro   0x0000000000014de9      0x385 ./Core/Src/encoder.o
  .debug_macro   0x000000000001516e       0x34 ./Core/Src/encoder.o
- .debug_macro   0x00000000000151a2      0x3fb ./Core/Src/gpio.o
- .debug_macro   0x000000000001559d       0x3a ./Core/Src/gpio.o
- .debug_macro   0x00000000000155d7       0x22 ./Core/Src/gpio.o
- .debug_macro   0x00000000000155f9      0x1a9 ./Core/Src/gpio.o
- .debug_macro   0x00000000000157a2       0x16 ./Core/Src/gpio.o
- .debug_macro   0x00000000000157b8       0x16 ./Core/Src/gpio.o
- .debug_macro   0x00000000000157ce       0x29 ./Core/Src/gpio.o
- .debug_macro   0x00000000000157f7      0x212 ./Core/Src/gpio.o
- .debug_macro   0x0000000000015a09       0xa0 ./Core/Src/gpio.o
- .debug_macro   0x0000000000015aa9      0x40d ./Core/Src/main.o
- .debug_macro   0x0000000000015eb6      0x376 ./Core/Src/spi.o
- .debug_macro   0x000000000001622c      0x36c ./Core/Src/stm32f4xx_hal_msp.o
- .debug_macro   0x0000000000016598      0x376 ./Core/Src/stm32f4xx_it.o
- .debug_macro   0x000000000001690e       0xff ./Core/Src/sysmem.o
- .debug_macro   0x0000000000016a0d      0x23b ./Core/Src/sysmem.o
- .debug_macro   0x0000000000016c48      0x1ce ./Core/Src/system_stm32f4xx.o
- .debug_macro   0x0000000000016e16      0x37f ./Core/Src/tim.o
- .debug_macro   0x0000000000017195      0x22e ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_macro   0x00000000000173c3      0x1ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_macro   0x0000000000017591      0x1d4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_macro   0x0000000000017765      0x1f2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_macro   0x0000000000017957      0x1dd ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_macro   0x0000000000017b34      0x1cf ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_macro   0x0000000000017d03      0x1ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_macro   0x0000000000017ed1       0x6d ./st7735/Src/fonts.o
- .debug_macro   0x0000000000017f3e      0x2d5 ./st7735/Src/st7735.o
+ .debug_macro   0x00000000000151a2      0x405 ./Core/Src/gpio.o
+ .debug_macro   0x00000000000155a7       0x3a ./Core/Src/gpio.o
+ .debug_macro   0x00000000000155e1       0x22 ./Core/Src/gpio.o
+ .debug_macro   0x0000000000015603      0x1a9 ./Core/Src/gpio.o
+ .debug_macro   0x00000000000157ac       0x16 ./Core/Src/gpio.o
+ .debug_macro   0x00000000000157c2       0x16 ./Core/Src/gpio.o
+ .debug_macro   0x00000000000157d8       0x29 ./Core/Src/gpio.o
+ .debug_macro   0x0000000000015801      0x212 ./Core/Src/gpio.o
+ .debug_macro   0x0000000000015a13      0x40d ./Core/Src/main.o
+ .debug_macro   0x0000000000015e20       0xa0 ./Core/Src/main.o
+ .debug_macro   0x0000000000015ec0      0x376 ./Core/Src/spi.o
+ .debug_macro   0x0000000000016236      0x36c ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_macro   0x00000000000165a2      0x376 ./Core/Src/stm32f4xx_it.o
+ .debug_macro   0x0000000000016918       0xff ./Core/Src/sysmem.o
+ .debug_macro   0x0000000000016a17      0x23b ./Core/Src/sysmem.o
+ .debug_macro   0x0000000000016c52      0x1ce ./Core/Src/system_stm32f4xx.o
+ .debug_macro   0x0000000000016e20      0x37f ./Core/Src/tim.o
+ .debug_macro   0x000000000001719f      0x22e ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_macro   0x00000000000173cd      0x1ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_macro   0x000000000001759b      0x1d4 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_macro   0x000000000001776f      0x1f2 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_macro   0x0000000000017961      0x1dd ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_macro   0x0000000000017b3e      0x1cf ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_macro   0x0000000000017d0d      0x1ce ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_macro   0x0000000000017edb       0x6d ./st7735/Src/fonts.o
+ .debug_macro   0x0000000000017f48      0x2d5 ./st7735/Src/st7735.o
 
-.debug_line     0x0000000000000000    0x131c9
- .debug_line    0x0000000000000000      0xd1a ./Core/Src/AD9833.o
- .debug_line    0x0000000000000d1a      0xc91 ./Core/Src/encoder.o
- .debug_line    0x00000000000019ab      0xc2f ./Core/Src/gpio.o
- .debug_line    0x00000000000025da      0xe8e ./Core/Src/main.o
- .debug_line    0x0000000000003468      0xc5e ./Core/Src/spi.o
- .debug_line    0x00000000000040c6      0xb77 ./Core/Src/stm32f4xx_hal_msp.o
- .debug_line    0x0000000000004c3d      0xc39 ./Core/Src/stm32f4xx_it.o
- .debug_line    0x0000000000005876      0x796 ./Core/Src/sysmem.o
- .debug_line    0x000000000000600c      0x900 ./Core/Src/system_stm32f4xx.o
- .debug_line    0x000000000000690c      0xc0b ./Core/Src/tim.o
- .debug_line    0x0000000000007517       0x88 ./Core/Startup/startup_stm32f401ccux.o
- .debug_line    0x000000000000759f      0xb66 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
- .debug_line    0x0000000000008105      0xe15 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
- .debug_line    0x0000000000008f1a      0xca0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
- .debug_line    0x0000000000009bba      0xee0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
- .debug_line    0x000000000000aa9a     0x1dee ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
- .debug_line    0x000000000000c888     0x3634 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
- .debug_line    0x000000000000febc     0x1afe ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
- .debug_line    0x00000000000119ba      0x565 ./st7735/Src/fonts.o
- .debug_line    0x0000000000011f1f     0x12aa ./st7735/Src/st7735.o
+.debug_line     0x0000000000000000    0x13250
+ .debug_line    0x0000000000000000      0xd49 ./AD9833/Src/AD9833.o
+ .debug_line    0x0000000000000d49      0xc91 ./Core/Src/encoder.o
+ .debug_line    0x00000000000019da      0xc5b ./Core/Src/gpio.o
+ .debug_line    0x0000000000002635      0xeba ./Core/Src/main.o
+ .debug_line    0x00000000000034ef      0xc5e ./Core/Src/spi.o
+ .debug_line    0x000000000000414d      0xb77 ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_line    0x0000000000004cc4      0xc39 ./Core/Src/stm32f4xx_it.o
+ .debug_line    0x00000000000058fd      0x796 ./Core/Src/sysmem.o
+ .debug_line    0x0000000000006093      0x900 ./Core/Src/system_stm32f4xx.o
+ .debug_line    0x0000000000006993      0xc0b ./Core/Src/tim.o
+ .debug_line    0x000000000000759e       0x88 ./Core/Startup/startup_stm32f401ccux.o
+ .debug_line    0x0000000000007626      0xb66 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_line    0x000000000000818c      0xe15 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_line    0x0000000000008fa1      0xca0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_line    0x0000000000009c41      0xee0 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_line    0x000000000000ab21     0x1dee ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_line    0x000000000000c90f     0x3634 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_line    0x000000000000ff43     0x1afe ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_line    0x0000000000011a41      0x565 ./st7735/Src/fonts.o
+ .debug_line    0x0000000000011fa6     0x12aa ./st7735/Src/st7735.o
 
-.debug_str      0x0000000000000000    0x8e77c
- .debug_str     0x0000000000000000    0x89b48 ./Core/Src/AD9833.o
-                                      0x89ecc (size before relaxing)
- .debug_str     0x0000000000089b48      0x446 ./Core/Src/encoder.o
+.debug_str      0x0000000000000000    0x8e77e
+ .debug_str     0x0000000000000000    0x89b4a ./AD9833/Src/AD9833.o
+                                      0x89ece (size before relaxing)
+ .debug_str     0x0000000000089b4a      0x446 ./Core/Src/encoder.o
                                       0x89dd0 (size before relaxing)
- .debug_str     0x0000000000089f8e     0x1183 ./Core/Src/gpio.o
+ .debug_str     0x0000000000089f90     0x1183 ./Core/Src/gpio.o
                                       0x8b2e7 (size before relaxing)
- .debug_str     0x000000000008b111      0x2fc ./Core/Src/main.o
+ .debug_str     0x000000000008b113      0x2fc ./Core/Src/main.o
                                       0x8b5cc (size before relaxing)
- .debug_str     0x000000000008b40d       0x58 ./Core/Src/spi.o
+ .debug_str     0x000000000008b40f       0x58 ./Core/Src/spi.o
                                       0x89cbf (size before relaxing)
- .debug_str     0x000000000008b465       0x2c ./Core/Src/stm32f4xx_hal_msp.o
+ .debug_str     0x000000000008b467       0x2c ./Core/Src/stm32f4xx_hal_msp.o
                                       0x897b2 (size before relaxing)
- .debug_str     0x000000000008b491       0xbd ./Core/Src/stm32f4xx_it.o
+ .debug_str     0x000000000008b493       0xbd ./Core/Src/stm32f4xx_it.o
                                       0x8972e (size before relaxing)
- .debug_str     0x000000000008b54e      0x4e9 ./Core/Src/sysmem.o
+ .debug_str     0x000000000008b550      0x4e9 ./Core/Src/sysmem.o
                                        0x628c (size before relaxing)
- .debug_str     0x000000000008ba37       0xaf ./Core/Src/system_stm32f4xx.o
+ .debug_str     0x000000000008ba39       0xaf ./Core/Src/system_stm32f4xx.o
                                       0x855ca (size before relaxing)
- .debug_str     0x000000000008bae6      0x139 ./Core/Src/tim.o
+ .debug_str     0x000000000008bae8      0x139 ./Core/Src/tim.o
                                       0x89f67 (size before relaxing)
- .debug_str     0x000000000008bc1f       0x36 ./Core/Startup/startup_stm32f401ccux.o
+ .debug_str     0x000000000008bc21       0x36 ./Core/Startup/startup_stm32f401ccux.o
                                          0x5d (size before relaxing)
- .debug_str     0x000000000008bc55      0x905 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
+ .debug_str     0x000000000008bc57      0x905 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o
                                       0x85f4a (size before relaxing)
- .debug_str     0x000000000008c55a      0x399 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
+ .debug_str     0x000000000008c55c      0x399 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o
                                       0x85d27 (size before relaxing)
- .debug_str     0x000000000008c8f3      0x15f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
+ .debug_str     0x000000000008c8f5      0x15f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o
                                       0x85771 (size before relaxing)
- .debug_str     0x000000000008ca52      0x259 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
+ .debug_str     0x000000000008ca54      0x259 ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o
                                       0x859cc (size before relaxing)
- .debug_str     0x000000000008ccab      0x57f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
+ .debug_str     0x000000000008ccad      0x57f ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.o
                                       0x85e5c (size before relaxing)
- .debug_str     0x000000000008d22a      0xdac ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
+ .debug_str     0x000000000008d22c      0xdac ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o
                                       0x868e7 (size before relaxing)
- .debug_str     0x000000000008dfd6      0x4ee ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x000000000008dfd8      0x4ee ./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o
                                       0x86098 (size before relaxing)
- .debug_str     0x000000000008e4c4       0x33 ./st7735/Src/fonts.o
+ .debug_str     0x000000000008e4c6       0x33 ./st7735/Src/fonts.o
                                        0x3d45 (size before relaxing)
- .debug_str     0x000000000008e4f7      0x285 ./st7735/Src/st7735.o
+ .debug_str     0x000000000008e4f9      0x285 ./st7735/Src/st7735.o
                                       0x89d74 (size before relaxing)
 
 .comment        0x0000000000000000       0x53
- .comment       0x0000000000000000       0x53 ./Core/Src/AD9833.o
+ .comment       0x0000000000000000       0x53 ./AD9833/Src/AD9833.o
                                          0x54 (size before relaxing)
  .comment       0x0000000000000053       0x54 ./Core/Src/encoder.o
  .comment       0x0000000000000053       0x54 ./Core/Src/gpio.o
@@ -4977,7 +4977,7 @@ LOAD d:/programs/stmicroelectronics/stm32cubeide_1.7.0/stm32cubeide/plugins/com.
  .comment       0x0000000000000053       0x54 ./st7735/Src/st7735.o
 
 .debug_frame    0x0000000000000000     0x3a84
- .debug_frame   0x0000000000000000      0x168 ./Core/Src/AD9833.o
+ .debug_frame   0x0000000000000000      0x168 ./AD9833/Src/AD9833.o
  .debug_frame   0x0000000000000168       0x8c ./Core/Src/encoder.o
  .debug_frame   0x00000000000001f4       0x34 ./Core/Src/gpio.o
  .debug_frame   0x0000000000000228       0xdc ./Core/Src/main.o

@@ -57,7 +57,22 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 uint32_t int_pow(uint32_t base, uint8_t exp);
+/*
+ * @brief The function edits the value of the digit of the number by its position
+ * The position is counted from right to left, that is,
+ * from the least significant digit to the most significant
+ * @param Position of the digit to be changed
+ * @param Pointer to the number
+ */
 void Edit_Frequency(int8_t position, uint32_t *p_freq);
+
+/*
+ * @brief The function changes the value of the pointer to the
+ * position using the rotary encoder. Used to select the position of the
+ * digit of the frequency value and to select the type of waveform.
+ * @param Pointer to the value of the variable that you want to change using the encoder
+ * @param Maximum value of elements (for selection looping)
+ */
 void Change_Position(int8_t *edit_pos, uint8_t MAX_POS);
 /* USER CODE END EFP */
 

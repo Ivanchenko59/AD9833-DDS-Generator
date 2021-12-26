@@ -5,6 +5,9 @@
  * This contains the prototypes for the AD9833
  * driver and eventually any macros, constants.
  *
+ * !!!!IMPORTANT!!!!
+ * Setup Hardware SPI to POLATRITY LOW, PHASE 1 EDGE
+ *
  * Offical Documents:
  * https://www.analog.com/media/en/technical-documentation/application-notes/AN-1070.pdf
  * https://www.analog.com/media/en/technical-documentation/data-sheets/AD9833.pdf

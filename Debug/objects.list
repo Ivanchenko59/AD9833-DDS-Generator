@@ -1,4 +1,4 @@
-"./Core/Src/AD9833.o"
+"./AD9833/Src/AD9833.o"
 "./Core/Src/encoder.o"
 "./Core/Src/gpio.o"
 "./Core/Src/main.o"

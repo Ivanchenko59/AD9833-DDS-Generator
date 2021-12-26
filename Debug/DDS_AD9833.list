@@ -27,23 +27,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  00020090  2**0
                   CONTENTS, READONLY
- 12 .debug_info   00014485  00000000  00000000  000200c0  2**0
+ 12 .debug_info   00014482  00000000  00000000  000200c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000029d8  00000000  00000000  00034545  2**0
+ 13 .debug_abbrev 000029d8  00000000  00000000  00034542  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  14 .debug_aranges 00000d40  00000000  00000000  00036f20  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_ranges 00000c00  00000000  00000000  00037c60  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_macro  00018213  00000000  00000000  00038860  2**0
+ 16 .debug_macro  0001821d  00000000  00000000  00038860  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000131c9  00000000  00000000  00050a73  2**0
+ 17 .debug_line   00013250  00000000  00000000  00050a7d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    0008e77c  00000000  00000000  00063c3c  2**0
+ 18 .debug_str    0008e77e  00000000  00000000  00063ccd  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000f23b8  2**0
+ 19 .comment      00000053  00000000  00000000  000f244b  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00003a84  00000000  00000000  000f240c  2**2
+ 20 .debug_frame  00003a84  00000000  00000000  000f24a0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1711,15 +1711,15 @@ int main(void)
   /* USER CODE BEGIN 2 */
   ST7735_Init();
  80010d2:	f002 faeb 	bl	80036ac <ST7735_Init>
-  AD9833_Init(wave_sine, freq, 0);
- 80010d6:	4bb9      	ldr	r3, [pc, #740]	; (80013bc <main+0x308>)
- 80010d8:	681b      	ldr	r3, [r3, #0]
- 80010da:	2200      	movs	r2, #0
- 80010dc:	4619      	mov	r1, r3
- 80010de:	2002      	movs	r0, #2
- 80010e0:	f7ff fe74 	bl	8000dcc <AD9833_Init>
   Encoder_Init();
- 80010e4:	f7ff fea8 	bl	8000e38 <Encoder_Init>
+ 80010d6:	f7ff feaf 	bl	8000e38 <Encoder_Init>
+  AD9833_Init(wave_sine, freq, 0);
+ 80010da:	4bb8      	ldr	r3, [pc, #736]	; (80013bc <main+0x308>)
+ 80010dc:	681b      	ldr	r3, [r3, #0]
+ 80010de:	2200      	movs	r2, #0
+ 80010e0:	4619      	mov	r1, r3
+ 80010e2:	2002      	movs	r0, #2
+ 80010e4:	f7ff fe72 	bl	8000dcc <AD9833_Init>
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -1912,7 +1912,6 @@ int main(void)
  800126e:	4b62      	ldr	r3, [pc, #392]	; (80013f8 <main+0x344>)
  8001270:	2200      	movs	r2, #0
  8001272:	701a      	strb	r2, [r3, #0]
-
 			  }
 			  if (button_status == Short_Press) Menu_Selector = Change_Frequency;
  8001274:	4b5c      	ldr	r3, [pc, #368]	; (80013e8 <main+0x334>)
@@ -2079,7 +2078,6 @@ int main(void)
  80013b8:	701a      	strb	r2, [r3, #0]
 				  //or something else?
 			  }
-
 			  break;
  80013ba:	e0e3      	b.n	8001584 <main+0x4d0>
  80013bc:	20000008 	.word	0x20000008
@@ -2259,9 +2257,6 @@ int main(void)
  800153e:	2200      	movs	r2, #0
  8001540:	701a      	strb	r2, [r3, #0]
 			  }
-
-
-
 			  break;
  8001542:	e021      	b.n	8001588 <main+0x4d4>
 
@@ -2751,9 +2746,9 @@ void MX_SPI1_Init(void)
  800183e:	4b0e      	ldr	r3, [pc, #56]	; (8001878 <MX_SPI1_Init+0x64>)
  8001840:	f44f 7200 	mov.w	r2, #512	; 0x200
  8001844:	619a      	str	r2, [r3, #24]
-  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;
+  hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
  8001846:	4b0c      	ldr	r3, [pc, #48]	; (8001878 <MX_SPI1_Init+0x64>)
- 8001848:	2208      	movs	r2, #8
+ 8001848:	2200      	movs	r2, #0
  800184a:	61da      	str	r2, [r3, #28]
   hspi1.Init.FirstBit = SPI_FIRSTBIT_MSB;
  800184c:	4b0a      	ldr	r3, [pc, #40]	; (8001878 <MX_SPI1_Init+0x64>)
@@ -2830,9 +2825,9 @@ void MX_SPI2_Init(void)
  80018aa:	4b0e      	ldr	r3, [pc, #56]	; (80018e4 <MX_SPI2_Init+0x64>)
  80018ac:	f44f 7200 	mov.w	r2, #512	; 0x200
  80018b0:	619a      	str	r2, [r3, #24]
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_8;  //default 2, but ad9833 max speed 25 MHz
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_4;  //default 2, but ad9833 max speed 25 MHz
  80018b2:	4b0c      	ldr	r3, [pc, #48]	; (80018e4 <MX_SPI2_Init+0x64>)
- 80018b4:	2210      	movs	r2, #16
+ 80018b4:	2208      	movs	r2, #8
  80018b6:	61da      	str	r2, [r3, #28]
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
  80018b8:	4b0a      	ldr	r3, [pc, #40]	; (80018e4 <MX_SPI2_Init+0x64>)
