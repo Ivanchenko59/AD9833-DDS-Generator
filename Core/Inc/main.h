@@ -77,16 +77,15 @@ void Change_Position(int8_t *edit_pos, uint8_t MAX_POS);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define ST7735_SCK_Pin 			GPIO_PIN_5
-#define ST7735_SCK_GPIO_Port 	GPIOA
-#define ST7735_SDA_Pin 			GPIO_PIN_7
-#define ST7735_SDA_GPIO_Port 	GPIOA
+#define ST7735_SCK_Pin GPIO_PIN_5
+#define ST7735_SCK_GPIO_Port GPIOA
+#define ST7735_SDA_Pin GPIO_PIN_7
+#define ST7735_SDA_GPIO_Port GPIOA
 
-#define AD9833_SCK_Pin 			GPIO_PIN_10
-#define AD9833_SCK_GPIO_Port 	GPIOB
-#define AD9833_DAT_Pin 			GPIO_PIN_15
-#define AD9833_DAT_GPIO_Port 	GPIOB
-
+#define AD9833_SCK_Pin GPIO_PIN_10
+#define AD9833_SCK_GPIO_Port GPIOB
+#define AD9833_DAT_Pin GPIO_PIN_15
+#define AD9833_DAT_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 #define MAX_FREQ_VALUE 5000000

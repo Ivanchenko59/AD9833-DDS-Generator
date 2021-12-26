@@ -6,7 +6,7 @@
  * driver and eventually any macros, constants.
  *
  * !!!!IMPORTANT!!!!
- * Setup Hardware SPI to POLATRITY LOW, PHASE 1 EDGE
+ * Setup Hardware SPI to POLATRITY HIGH, PHASE 1 EDGE
  *
  * Offical Documents:
  * https://www.analog.com/media/en/technical-documentation/application-notes/AN-1070.pdf
