@@ -20,7 +20,7 @@ Here you can watch a video of the demo version.
 
 [![Watch the video](https://img.youtube.com/vi/vuJpcqhaOHE/maxresdefault.jpg)](https://youtu.be/vuJpcqhaOHE)
 
-##Some Photos
+## Some Photos
 
 <img src="https://user-images.githubusercontent.com/80352225/147411294-d064a6ac-9c03-4451-bf48-b480c6d194d0.png" width="700" height="500">
 <img src="https://user-images.githubusercontent.com/80352225/147411301-9e7306ec-843a-4bc4-bdb0-118933c6111e.png" width="700" height="500">
