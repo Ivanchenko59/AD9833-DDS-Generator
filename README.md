@@ -1,6 +1,7 @@
 # AD9833-DDS-Generator
 
 ## Description
+***This project will be archived. Please look at the ![new repository](https://github.com/Ivanchenko59/DDS-Generator) with the continuation of the project on another STM32 chip.*** 
 
 A simple signal generator based on the ***AD9833*** chip. 
 The project is built on the ***STM32F401*** microcontroller
